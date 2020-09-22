@@ -6,7 +6,7 @@
 | **Description**        | Поиск необходимой вещи, в моём случае кроссовки |                   |                   |
 | **Module**             |                                                 |                   |                   |
 | **Prepared By**        | Alina Savchuk                                   | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                                 | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                        | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                                 | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description             | **Expected Results**                                  | **Actual Results** |
@@ -14,20 +14,20 @@
 | 1           | Перейти на https://nike.com/ | Сайт должен открыться                                 | Как и ожидалось    |
 | 2           | В поиске ввести "air force"  | В двух вариантах должен появиться каталог с air force | Как и ожидалось    |
 
-  											![](D:\UNIVERSITY\epam_labs\img\1.png)
+  											
 
 ------
 
 
 
-| Test Case ID           | TC_Functionality_02 |                   |                   |
-| :--------------------- | ------------------- | ----------------- | ----------------- |
-| **Priority**           | Высоко              |                   |                   |
-| **Description**        | Заказать кроссовки  |                   |                   |
-| **Module**             |                     |                   |                   |
-| **Prepared By**        | Alina Savchuk       | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                     | **Date Reviewed** |                   |
-| **Actual Results**     |                     | **Date Tested**   | 21-September-2020 |
+| Test Case ID           | TC_Functionality_02                                  |                   |                   |
+| :--------------------- | ---------------------------------------------------- | ----------------- | ----------------- |
+| **Priority**           | Высоко                                               |                   |                   |
+| **Description**        | Заказать кроссовки не авторизированному пользователю |                   |                   |
+| **Module**             |                                                      |                   |                   |
+| **Prepared By**        | Alina Savchuk                                        | **Date Prepared** | 21-September-2020 |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                             | **Date Reviewed** | 22-September-2020 |
+| **Actual Results**     |                                                      | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description             | **Expected Results**                                  | **Actual Results** |
 | ----------- | ---------------------------- | ----------------------------------------------------- | ------------------ |
@@ -36,7 +36,7 @@
 | 3           | Выбрать желаемые кроссовки   | Откроется страничка с выбранными кроссовками          | Как и ожидалось    |
 | 4           | Добавить в корзину           | В корзине будет +1 товар                              | Как и ожидалось    |
 
-  															![](D:\UNIVERSITY\epam_labs\img\2.png)
+  															
 
 ------
 
@@ -48,7 +48,7 @@
 | **Description**        | Купить кроссовки без регистрации в Беларусь |                   |                   |
 | **Module**             |                                             |                   |                   |
 | **Prepared By**        | Alina Savchuk                               | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                             | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                    | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                             | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description               | **Expected Results**                                         | **Actual Results** |
@@ -60,7 +60,7 @@
 | 5           | Оформить заказ без регистрации | Перейти к заполнению формы                                   | Как и ожидалось    |
 | 6           | Ввести свои данные             | тк доставки в Беларусь нет, все введённые данные о Беларуси будут не корректны, соответственно к следующему этапу заполнения карты не дошли | Как и ожидалось    |
 
-  															![](D:\UNIVERSITY\epam_labs\img\3.png)
+  															
 
 ------
 
@@ -72,7 +72,7 @@
 | **Description**        | Заказать кроссовки без регистрации в Россию |                   |                   |
 | **Module**             |                                             |                   |                   |
 | **Prepared By**        | Alina Savchuk                               | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                             | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                    | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                             | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description               | **Expected Results**                                  | **Actual Results** |
@@ -85,22 +85,20 @@
 | 6           | Ввести свои данные             | Ввести валидные данные для РФ                         | Как и ожидалось    |
 | 7           | Дойти до заполнения карты      | Номер карты не заполнять и закрыть                    | Как и ожидалось    |
 
-![](D:\UNIVERSITY\epam_labs\img\4.png)
-
-  															![](D:\UNIVERSITY\epam_labs\img\4.1.png)
+  												
 
 ------
 
 
 
-| Test Case ID           | TC_Functionality_05 |                   |                   |
-| :--------------------- | ------------------- | ----------------- | ----------------- |
-| **Priority**           | Высоко              |                   |                   |
-| **Description**        | Авторизация         |                   |                   |
-| **Module**             |                     |                   |                   |
-| **Prepared By**        | Alina Savchuk       | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                     | **Date Reviewed** |                   |
-| **Actual Results**     |                     | **Date Tested**   | 21-September-2020 |
+| Test Case ID           | TC_Functionality_05      |                   |                   |
+| :--------------------- | ------------------------ | ----------------- | ----------------- |
+| **Priority**           | Высоко                   |                   |                   |
+| **Description**        | Авторизация              |                   |                   |
+| **Module**             |                          |                   |                   |
+| **Prepared By**        | Alina Savchuk            | **Date Prepared** | 21-September-2020 |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga | **Date Reviewed** | 22-September-2020 |
+| **Actual Results**     |                          | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description              | **Expected Results**                           | **Actual Results** |
 | ----------- | ----------------------------- | ---------------------------------------------- | ------------------ |
@@ -120,13 +118,13 @@
 | **Description**        | Навигационное тестирование |                   |                   |
 | **Module**             |                            |                   |                   |
 | **Prepared By**        | Alina Savchuk              | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                            | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga   | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                            | **Date Tested**   | 21-September-2020 |
 
-| **Sl. No.** | Step Description                    | **Expected Results**                                    | **Actual Results** |
-| ----------- | ----------------------------------- | ------------------------------------------------------- | ------------------ |
-| 1           | Перейти на https://nike.com/        | Сайт должен открыться                                   | Как и ожидалось    |
-| 2           | Просмотреть всё основное меню сайта | Все кнопки лаконичны и понятны, ведут к своим страницам | Как и ожидалось    |
+| **Sl. No.** | Step Description                                             | **Expected Results**                                    | **Actual Results** |
+| ----------- | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------ |
+| 1           | Перейти на https://nike.com/                                 | Сайт должен открыться                                   | Как и ожидалось    |
+| 2           | Просмотреть всё основное меню сайта, покникать по кнопкам, работают ли они | Все кнопки лаконичны и понятны, ведут к своим страницам | Как и ожидалось    |
 
   															
 
@@ -140,17 +138,17 @@
 | **Description**        | Оформление заказа с мобильного устройства |                   |                   |
 | **Module**             |                                           |                   |                   |
 | **Prepared By**        | Alina Savchuk                             | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                           | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                  | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                           | **Date Tested**   | 21-September-2020 |
 
-| **Sl. No.** | Step Description             | **Expected Results**      | **Actual Results**   |
-| ----------- | ---------------------------- | ------------------------- | -------------------- |
-| 1           | Перейти на https://nike.com/ | Сайт должен открыться     | Как и ожидалось      |
-| 2           | Перейти в женское-обувь-бег  | Каталог беговых кроссовой | Как и ожидалось      |
-| 3           | Выбрать кроссовки            | Страничка с кроссовками   | Как и ожидалось      |
-| 4           | Положить в корзину           | В корзине +1              | Ничего не добавилось |
+| **Sl. No.** | Step Description             | **Expected Results**      | **Actual Results** |
+| ----------- | ---------------------------- | ------------------------- | ------------------ |
+| 1           | Перейти на https://nike.com/ | Сайт должен открыться     | Как и ожидалось    |
+| 2           | Перейти в женское-обувь-бег  | Каталог беговых кроссовой | Как и ожидалось    |
+| 3           | Выбрать кроссовки            | Страничка с кроссовками   | Как и ожидалось    |
+| 4           | Положить в корзину           | В корзине +1              | Как и ожидалось    |
 
-  														![](D:\UNIVERSITY\epam_labs\img\6.png)
+  														
 
 ------
 
@@ -164,13 +162,13 @@
 | **Description**        | Проверить сайт с отключенными cookie и проверить их продолжительность действия |                   |                   |
 | **Module**             |                                                              |                   |                   |
 | **Prepared By**        | Alina Savchuk                                                | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                                              | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                                     | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                                              | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description             | **Expected Results**                                         | **Actual Results** |
 | ----------- | ---------------------------- | ------------------------------------------------------------ | ------------------ |
 | 1           | Перейти на https://nike.com/ | Сайт должен открыться                                        | Как и ожидалось    |
-| 2           | Отключить cookie             | Сайт забудет информацию, введенную с данного компьютера на этом сайте | Как и ожидалось    |
+| 2           | Отключить cookie             | Сайт забудет информацию, введенную до этого с данного компьютера | Как и ожидалось    |
 
   															
 
@@ -184,18 +182,16 @@
 | **Description**        | Оформление заказа на большую сумму |                   |                   |
 | **Module**             |                                    |                   |                   |
 | **Prepared By**        | Alina Savchuk                      | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                    | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga           | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                    | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description                                            | **Expected Results**         | **Actual Results**                                           |
 | ----------- | ----------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------ |
 | 1           | Перейти на https://nike.com/                                | Сайт должен открыться        | Как и ожидалось                                              |
-| 2           | Положить в корзину товаров более 15 шт (и каждого по 10 шт) | Корзина на сумму более 1 млн | При переходе в оплату возникла ошибка                        |
-|             |                                                             |                              | При изменении количества товаров каждый раз появляется ошибка. Позже появилась другая ошибка :) |
+| 2           | Положить в корзину товаров более 15 шт (и каждого по 10 шт) | Корзина на сумму более 1 млн | При переходе к оплате возникла ошибки. При изменении количества товаров каждый раз появляется ошибка. Позже появилась другая ошибка |
+|             |                                                             |                              |                                                              |
 
-  ![](D:\UNIVERSITY\epam_labs\img\7.png)															![](D:\UNIVERSITY\epam_labs\img\7.1.png)
-
-![](D:\UNIVERSITY\epam_labs\img\8.png)
+  												
 
 ------
 
@@ -207,7 +203,7 @@
 | **Description**        | Оформление заказа на сумму более 100 тыс российский рублей |                   |                   |
 | **Module**             |                                                            |                   |                   |
 | **Prepared By**        | Alina Savchuk                                              | **Date Prepared** | 21-September-2020 |
-| **Reviewed / Updated** |                                                            | **Date Reviewed** |                   |
+| **Reviewed / Updated** | Kirill Sergeevich Kalyga                                   | **Date Reviewed** | 22-September-2020 |
 | **Actual Results**     |                                                            | **Date Tested**   | 21-September-2020 |
 
 | **Sl. No.** | Step Description                               | **Expected Results**              | **Actual Results** |
@@ -216,7 +212,7 @@
 | 2           | выбрать набор желаемых вещей                   | Всё добавится в корзину           | Как и ожидалось    |
 | 3           | перейти к заполнению информации о пользователе | Форма заполнения для пользователя | Как и ожидалось    |
 
-  												![](D:\UNIVERSITY\epam_labs\img\10.png)			
+  															
 
 ------
 
