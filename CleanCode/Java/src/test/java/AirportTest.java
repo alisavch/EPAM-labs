@@ -46,7 +46,7 @@ public class AirportTest {
 
     @Test
     public void isNextPlaneMaxLoadCapacityHigherThanCurrent() {
-        Assert.assertTrue(airport.sortByMaxLoadCapacity().stream().reduce((left,right)->(right==true)&&(right<=left)?right:false));
+        Assert.assertTrue(airport.comparePlanesMaxLoadCapacity());
     }
 
     @Test
