@@ -1,7 +1,7 @@
 package Planes;
 
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
+import Models.ClassificationLevel;
+import Models.ExperimentalTypes;
 
 import java.util.Objects;
 
@@ -20,7 +20,7 @@ public class ExperimentalPlane extends Plane{
         return classificationLevel;
     }
 
-    public void setClassificationLevel(ClassificationLevel classificationLevel){
+    public void getClassificationLevel(ClassificationLevel classificationLevel){
         this.classificationLevel = classificationLevel;
     }
 

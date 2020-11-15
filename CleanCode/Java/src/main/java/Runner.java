@@ -1,4 +1,4 @@
-import models.MilitaryType;
+import Models.MilitaryType;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;

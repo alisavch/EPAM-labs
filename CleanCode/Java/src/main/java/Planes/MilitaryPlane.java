@@ -1,6 +1,6 @@
 package Planes;
 
-import models.MilitaryType;
+import Models.MilitaryType;
 
 import java.util.Objects;
 
@@ -10,7 +10,7 @@ public class MilitaryPlane extends Plane{
 
     public MilitaryPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, MilitaryType militaryType) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
-        this.militaryType = type;
+        this.militaryType = militaryType;
     }
 
     public MilitaryType getMilitaryType() {
