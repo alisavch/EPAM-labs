@@ -1,7 +1,7 @@
 import Planes.ExperimentalPlane;
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
-import models.MilitaryType;
+import Models.ClassificationLevel;
+import Models.ExperimentalTypes;
+import Models.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Planes.MilitaryPlane;
