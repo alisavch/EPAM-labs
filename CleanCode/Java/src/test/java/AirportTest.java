@@ -46,16 +46,16 @@ public class AirportTest {
 
     @Test
     public void isNextPlaneMaxLoadCapacityHigherThanCurrent() {
-        Assert.assertTrue(airport.sortByMaxLoadCapacity().stream().reduce((left,right)->(right==true)&&(right<=left)?right:false, -Infinity));
+        Assert.assertTrue(airport.sortByMaxLoadCapacity().reduce((left,right)->(right==true)&&(right<=left)?right:false));
     }
 
     @Test
     public void hasAtLeastOneBomberInMilitaryPlanes() {
-        Assert.assertTrue(airport.getBomberMilitaryPlanes().stream().filter(mititaryPlane->militaryPlane.getMilitaryType()==MilitaryType.BOMBER));
+        Assert.assertTrue(airport.getBomberMilitaryPlanes().stream().anyMatch(militaryPlane->militaryPlane.getMilitaryType() == MilitaryType.BOMBER));
     }
 
     @Test
     public void experimentalPlanesHasClassificationLevelHigherThanUnclassified(){
-        Assert.assertTrue(airport.getExperimentalPlanes().stream().filter(experimentalPlane->experimentalPlane.getClassificationLevel()==ClassificationLevel.UNCLASSIFIED));
+        Assert.assertTrue(airport.getExperimentalPlanes().stream().filter(plane->plane.getClassificationLevel()==ClassificationLevel.UNCLASSIFIED).length==0);
     }
 }
