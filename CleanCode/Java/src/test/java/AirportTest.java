@@ -59,3 +59,4 @@ public class AirportTest {
         List<ExperimentalPlane> experimentalUnclassifiedPlanes = airport.getUnclassifiedExperimentalPlanes();
         Assert.assertTrue(experimentalUnclassifiedPlanes.size() == 0);
     }
+}
