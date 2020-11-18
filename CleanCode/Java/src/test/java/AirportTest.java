@@ -56,5 +56,6 @@ public class AirportTest {
 
     @Test
     public void experimentalPlanesHasClassificationLevelHigherThanUnclassified(){
-        Assert.assertTrue(airport.getExperimentalPlanesList().get(0).getClassificationLevel() != ClassificationLevel.UNCLASSIFIED);    }
-}
+        List<ExperimentalPlane> experimentalUnclassifiedPlanes = airport.getUnclassifiedExperimentalPlanes();
+        Assert.assertTrue(experimentalUnclassifiedPlanes.size() == 0);
+    }

@@ -74,6 +74,11 @@ public class Airport {
         return experimentalPlanes;
     }
 
+    public List<ExperimentalPlane> getUnclassifiedExperimentalPlanes() {
+        return planes.stream().filter(p -> p instanceof ExperimentalPlane).map(p -> (ExperimentalPlane)p)
+                .filter(p -> p.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED).collect(Collectors.toList());
+    }
+
     public Airport sortByMaxDistance() {
         Collections.sort(planes, new Comparator<Plane>() {
             public int compare(Plane object1, Plane object2) {
