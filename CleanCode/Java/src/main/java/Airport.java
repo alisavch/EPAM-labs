@@ -1,5 +1,6 @@
 import Planes.ExperimentalPlane;
 import Models.MilitaryType;
+import Models.ClassificationLevel;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;
