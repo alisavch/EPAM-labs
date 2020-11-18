@@ -97,21 +97,4 @@ public class Airport {
                 '}';
     }
 
-
-    public boolean comparePlanesMaxLoadCapacity(){
-        Airport airport = new Airport(planes);
-        airport.sortByMaxLoadCapacity();
-        List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
-
-        for (int i = 0; i < planesSortedByMaxLoadCapacity.size() - 1; i++) {
-            Plane currentPlane = planesSortedByMaxLoadCapacity.get(i);
-            Plane nextPlane = planesSortedByMaxLoadCapacity.get(i + 1);
-            if (currentPlane.getMaxLoadCapacity() > nextPlane.getMaxLoadCapacity()) {
-                return false;
-
-            }
-        }
-        return true;
-    }
-
 }

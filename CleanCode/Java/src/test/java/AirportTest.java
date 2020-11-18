@@ -1,15 +1,16 @@
-import Planes.ExperimentalPlane;
 import Models.ClassificationLevel;
 import Models.ExperimentalTypes;
 import Models.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import Planes.ExperimentalPlane;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class AirportTest {
     private static List<Plane> planes = Arrays.asList(
@@ -41,7 +42,8 @@ public class AirportTest {
 
     @Test
     public void getPassengerPlaneWithMaxCapacity() {
-        Assert.assertTrue(airport.getPassengerPlaneWithMaxPassengersCapacity().equals(planeWithMaxPassengerCapacity));
+        PassengerPlane expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
+        Assert.assertTrue(expectedPlaneWithMaxPassengersCapacity.equals(planeWithMaxPassengerCapacity));
     }
 
     @Test
