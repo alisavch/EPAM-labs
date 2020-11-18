@@ -17,13 +17,13 @@ public class PassengerPlane extends Plane{
 
     @Override
     public boolean equals(Object object) {
-        if (!(o instanceof PassengerPlane)) {
+        if (!(object instanceof PassengerPlane)) {
             return false;
         }
-        if (!super.equals(o)) {
+        if (!super.equals(object)) {
             return false;
         }
-        PassengerPlane plane = (PassengerPlane) o;
+        PassengerPlane plane = (PassengerPlane) object;
         return passengersCapacity == plane.passengersCapacity;
     }
 
