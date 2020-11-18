@@ -60,7 +60,7 @@ public class Airport {
     }
 
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
-        r List<MilitaryPlane> bomberMilitaryPlanes = new ArrayList<>();
+        List<MilitaryPlane> bomberMilitaryPlanes = new ArrayList<>();
         List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
         for (int i = 0; i < militaryPlanes.size(); i++) {
             MilitaryPlane plane = militaryPlanes.get(i);
