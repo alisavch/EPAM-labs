@@ -88,8 +88,8 @@ public class Airport {
 
     public Airport sortByMaxDistance() {
         Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.GetMaxFlightDistance() - o2.GetMaxFlightDistance();
+            public int compare(Plane object1, Plane object2) {
+                return object1.GetMaxFlightDistance() - object2.GetMaxFlightDistance();
             }
         });
         return this;
