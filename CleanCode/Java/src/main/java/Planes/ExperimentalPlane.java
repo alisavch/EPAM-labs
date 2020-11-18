@@ -20,28 +20,7 @@ public class ExperimentalPlane extends Plane{
         return classificationLevel;
     }
 
-    public void getClassificationLevel(ClassificationLevel classificationLevel){
+    public void setClassificationLevel(ClassificationLevel classificationLevel){
         this.classificationLevel = classificationLevel;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (!(object instanceof MilitaryPlane)) return false;
-        if (!super.equals(object)) return false;
-        ExperimentalPlane experimentalPlane = (ExperimentalPlane) object;
-        return this.experimentalType == ((ExperimentalPlane)object).experimentalType;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), experimentalType);
-    }
-
-    @Override
-    public String toString() {
-        return "experimentalPlane{" +
-                "model='" + model + '\'' +
-                '}';
     }
 }

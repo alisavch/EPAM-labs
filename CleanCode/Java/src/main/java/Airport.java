@@ -5,7 +5,7 @@ import Planes.PassengerPlane;
 import Planes.Plane;
 
 import java.util.*;
-import java.util.stream.Collector;
+import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
 public class Airport {
@@ -28,20 +28,20 @@ public class Airport {
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
         return planes.stream().map(plane -> (PassengerPlane)plane).max(new Comparator<PassengerPlane>() {
             @Override
-            public int compare(Plane object1, Plane object2) {
-                return object1.getMaxFlightDistance() - object2.getMaxFlightDistance();
+            public int compare(PassengerPlane  object1, PassengerPlane  object2) {
+                return object1.getPassengersCapacity() - object2.getPassengersCapacity();
             }
         }).get();
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
         return planes.stream().filter(plane -> plane instanceof MilitaryPlane).map(plane -> (MilitaryPlane)plane)
-                .filter(plane -> plane.getType() == MilitaryType.TRANSPORT).collect(Collectors.toList());
+                .filter(plane -> plane.getMilitaryType() == MilitaryType.TRANSPORT).collect(Collectors.toList());
     }
 
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
         return planes.stream().filter(plane -> plane instanceof MilitaryPlane).map(plane -> (MilitaryPlane)plane)
-                .filter(plane->plane.getType() == MilitaryType.BOMBER).collect(Collectors.toList());
+                .filter(plane->plane.getMilitaryType() == MilitaryType.BOMBER).collect(Collectors.toList());
     }
 
     public List<ExperimentalPlane> getExperimentalPlanes() {
