@@ -1,7 +1,7 @@
-package planes;
+package plane;
 
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
+import model.ClassificationLevel;
+import model.ExperimentalTypes;
 
 import java.util.Objects;
 

@@ -1,12 +1,12 @@
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
-import models.MilitaryType;
+import model.ClassificationLevel;
+import model.ExperimentalTypes;
+import model.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import planes.ExperimentalPlane;
-import planes.MilitaryPlane;
-import planes.PassengerPlane;
-import planes.Plane;
+import plane.ExperimentalPlane;
+import plane.MilitaryPlane;
+import plane.PassengerPlane;
+import plane.Plane;
 
 import java.util.Arrays;
 import java.util.List;
