@@ -27,12 +27,14 @@ public class Airport {
     }
 
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
-        return planes.stream().map(plane -> (PassengerPlane)plane).max(new Comparator<PassengerPlane>() {
-            @Override
-            public int compare(Plane object1, Plane object2) {
-                return object1.getMaxFlightDistance() - object2.getMaxFlightDistance();
+        List<PassengerPlane> passengerPlanes = getPassengerPlanes();
+        PassengerPlane planeWithMaxCapacity = passengerPlanes.get(0);
+        for (int i = 0; i < passengerPlanes.size(); i++) {
+            if (passengerPlanes.get(i).getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {
+                planeWithMaxCapacity = passengerPlanes.get(i);
             }
-            }).get();
+            return planeWithMaxCapacity;
+        }
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
