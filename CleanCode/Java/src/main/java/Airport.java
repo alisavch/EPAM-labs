@@ -1,9 +1,9 @@
-import Planes.ExperimentalPlane;
-import Models.MilitaryType;
-import Models.ClassificationLevel;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+import planes.ExperimentalPlane;
+import models.MilitaryType;
+import models.ClassificationLevel;
+import planes.MilitaryPlane;
+import planes.PassengerPlane;
+import planes.Plane;
 
 import java.util.*;
 import java.util.stream.Stream;
