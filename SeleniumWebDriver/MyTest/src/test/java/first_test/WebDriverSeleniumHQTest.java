@@ -22,7 +22,6 @@ public class WebDriverSeleniumHQTest {
         closeLocation.click();
 //        WebElement clickToClose = driver.findElement(By.xpath("//i[@class='g72-x-circle fs32-nav-sm']"));
 //        clickToClose.click();
-
         List<WebElement> sizeBtn = driver.findElements(By.xpath("//label[@class='css-xf3ahq']"));
         sizeBtn.get(8).click();
         WebElement addToBag = waitForElementLocatedBy(driver, By.xpath("//button[contains(@class,'add-to-cart-btn')]"));
@@ -46,12 +45,14 @@ public class WebDriverSeleniumHQTest {
         WebElement actualSize = driver.findElement(By.xpath("//*[@value='70a3beda-fc15-59f0-95e9-82d145240dd1']"));
         WebElement actualPrice = driver.findElement(By.xpath("//*[contains(@class, 'ew71yvl1')]"));
         WebElement actualCount = driver.findElement(By.xpath("//*[@value='1']"));
+
         Assert.assertEquals(expectedName, actualName.getText());
         Assert.assertEquals(expectedTitle, actualTitle.getText());
         Assert.assertEquals(expectedColor, actualColor.getText());
         Assert.assertEquals(expectedSize, actualSize.getText());
         Assert.assertEquals(expectedPrice, actualPrice.getText());
         Assert.assertEquals(expectedCount, actualCount.getText());
+
         driver.quit();
     }
 
