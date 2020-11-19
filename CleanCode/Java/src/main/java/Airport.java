@@ -16,6 +16,11 @@ public class Airport {
         this.planes = planes;
     }
 
+    public List<MilitaryPlane> getTransportMilitaryPlanes() {
+        return planes.stream().filter(plane -> plane instanceof MilitaryPlane).map(plane -> (MilitaryPlane)plane)
+                .filter(plane -> plane.getMilitaryType() == MilitaryType.TRANSPORT).collect(Collectors.toList());
+    }
+
     public List<PassengerPlane> getPassengerPlanes() {
         return planes.stream().filter(plane -> plane instanceof PassengerPlane).map(plane -> (PassengerPlane)plane)
                 .collect(Collectors.toList());
@@ -37,9 +42,19 @@ public class Airport {
         return planeWithMaxCapacity;
     }
 
-    public List<MilitaryPlane> getTransportMilitaryPlanes() {
-            return planes.stream().filter(plane -> plane instanceof MilitaryPlane).map(plane -> (MilitaryPlane)plane)
-                .filter(plane -> plane.getMilitaryType() == MilitaryType.TRANSPORT).collect(Collectors.toList());
+    public boolean comparePlanesMaxLoadCapacity(){
+        Airport airport = new Airport(planes);
+        airport.sortByMaxLoadCapacity();
+        List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
+
+        for (int i = 0; i < planesSortedByMaxLoadCapacity.size() - 1; i++) {
+            Plane currentPlane = planesSortedByMaxLoadCapacity.get(i);
+            Plane nextPlane = planesSortedByMaxLoadCapacity.get(i + 1);
+            if (currentPlane.getMaxLoadCapacity() > nextPlane.getMaxLoadCapacity()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
@@ -103,18 +118,5 @@ public class Airport {
                 "Planes=" + planes.toString() +
                 '}';
     }
-    public boolean comparePlanesMaxLoadCapacity(){
-        Airport airport = new Airport(planes);
-        airport.sortByMaxLoadCapacity();
-        List<? extends Plane> planesSortedByMaxLoadCapacity = airport.getPlanes();
 
-        for (int i = 0; i < planesSortedByMaxLoadCapacity.size() - 1; i++) {
-            Plane currentPlane = planesSortedByMaxLoadCapacity.get(i);
-            Plane nextPlane = planesSortedByMaxLoadCapacity.get(i + 1);
-            if (currentPlane.getMaxLoadCapacity() > nextPlane.getMaxLoadCapacity()) {
-                return false;
-            }
-        }
-        return true;
-    }
 }
