@@ -43,7 +43,6 @@ public class Airport {
 
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
             return planes.stream().filter(plane -> plane instanceof MilitaryPlane).map(plane -> (MilitaryPlane)plane)
-                    .filter(plane->plane.getType() == MilitaryType.BOMBER).collect(Collectors.toList());
                 .filter(plane->plane.getMilitaryType() == MilitaryType.BOMBER).collect(Collectors.toList());
     }
 
