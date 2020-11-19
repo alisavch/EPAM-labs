@@ -63,13 +63,7 @@ public class Airport {
     }
 
     public List<ExperimentalPlane> getExperimentalPlanes() {
-        List<ExperimentalPlane> experimentalPlanes = new ArrayList<>();
-        for (Plane plane : planes) {
-            if (plane instanceof ExperimentalPlane) {
-                experimentalPlanes.add((ExperimentalPlane) plane);
-            }
-        }
-        return experimentalPlanes;
+        return planes.stream().filter(plane -> plane instanceof  ExperimentalPlane).map(plane -> (ExperimentalPlane)plane).collect(Collectors.toList());
     }
 
     public List<ExperimentalPlane> getUnclassifiedExperimentalPlanes() {
