@@ -43,7 +43,7 @@ public class AirportTest {
     @Test
     public void getPassengerPlaneWithMaxCapacity() {
         PassengerPlane expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
-        Assert.assertTrue(expectedPlaneWithMaxPassengersCapacity.equals(planeWithMaxPassengerCapacity));
+        Assert.assertEquals(planeWithMaxPassengerCapacity, expectedPlaneWithMaxPassengersCapacity);
     }
 
     @Test
@@ -59,6 +59,6 @@ public class AirportTest {
     @Test
     public void experimentalPlanesHasClassificationLevelHigherThanUnclassified(){
         List<ExperimentalPlane> experimentalUnclassifiedPlanes = airport.getUnclassifiedExperimentalPlanes();
-        Assert.assertTrue(experimentalUnclassifiedPlanes.size() == 0);
+        Assert.assertEquals(experimentalUnclassifiedPlanes.size(), 0);
     }
 }
