@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class MilitaryPlane extends Plane{
 
-    private MilitaryType militaryType;
+    private final MilitaryType militaryType;
 
     public MilitaryPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, MilitaryType militaryType) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
@@ -32,5 +32,12 @@ public class MilitaryPlane extends Plane{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), militaryType);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString().replace("}",
+                ", type=" + militaryType +
+                        '}');
     }
 }

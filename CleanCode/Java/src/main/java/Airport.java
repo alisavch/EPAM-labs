@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 import java.util.stream.Collectors;
 
 public class Airport {
-    private List<? extends Plane> planes;
+    private final List<? extends Plane> planes;
 
     public Airport(List<? extends Plane> planes) {
         this.planes = planes;
@@ -34,9 +34,9 @@ public class Airport {
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity() {
         List<PassengerPlane> passengerPlanes = getPassengerPlanes();
         PassengerPlane planeWithMaxCapacity = passengerPlanes.get(0);
-        for (int i = 0; i < passengerPlanes.size(); i++) {
-            if (passengerPlanes.get(i).getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {
-                planeWithMaxCapacity = passengerPlanes.get(i);
+        for (PassengerPlane passengerPlane : passengerPlanes) {
+            if (passengerPlane.getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {
+                planeWithMaxCapacity = passengerPlane;
             }
         }
         return planeWithMaxCapacity;
@@ -90,7 +90,7 @@ public class Airport {
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(planes, new Comparator<Plane>() {
+        planes.sort(new Comparator<Plane>() {
             public int compare(Plane object1, Plane object2) {
                 return object1.getMaxLoadCapacity() - object2.getMaxLoadCapacity();
             }
@@ -103,7 +103,7 @@ public class Airport {
     }
 
     private void print(Collection<? extends Plane> collection) {
-        planes.stream().forEachOrdered(plane -> System.out.println(plane.toString()));
+        planes.forEach(plane -> System.out.println(plane.toString()));
     }
 
     @Override

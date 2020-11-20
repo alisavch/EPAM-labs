@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class AirportTest {
-    private static List<Plane> planes = Arrays.asList(
+    private static final List<Plane> planes = Arrays.asList(
             new PassengerPlane("Boeing-737", 900, 12000, 60500, 164),
             new PassengerPlane("Boeing-737-800", 940, 12300, 63870, 192),
             new PassengerPlane("Boeing-747", 980, 16100, 70500, 242),
@@ -33,7 +33,7 @@ public class AirportTest {
     );
     Airport airport = new Airport(planes);
 
-    private static PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
+    private static final PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
 
     @Test
     public void getTransportMilitaryPlanes() {

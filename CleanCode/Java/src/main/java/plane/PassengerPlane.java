@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class PassengerPlane extends Plane{
 
-    private int passengersCapacity;
+    private final int passengersCapacity;
 
     public PassengerPlane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity, int passengersCapacity) {
         super(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
@@ -30,5 +30,12 @@ public class PassengerPlane extends Plane{
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), passengersCapacity);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString().replace("}",
+                ", passengersCapacity=" + passengersCapacity +
+                        '}');
     }
 }
