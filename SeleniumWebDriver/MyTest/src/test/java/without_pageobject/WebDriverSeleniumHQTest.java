@@ -1,4 +1,4 @@
-package first_test;
+package without_pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import  org.apache.http.cookie.*;
+
 import java.util.List;
 
 public class WebDriverSeleniumHQTest {
@@ -60,8 +60,6 @@ public class WebDriverSeleniumHQTest {
         String actualSize = actualSizeWE.getText();
         String actualPrice = actualPriceWE.getText();
         String actualCount = actualCountWE.getText();
-
-//        wait.until(ExpectedConditions.textToBePresentInElement(actualName, "Nike React Infinity Run Flyknit Premium"));
 
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedTitle, actualTitle);
