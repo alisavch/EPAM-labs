@@ -40,13 +40,6 @@ public class WebDriverSeleniumHQTest {
         WebElement cart = waitForElementLocatedBy(driver, By.xpath("//*[@id='nav-cart']/a"));
         cart.click();
 
-        String expectedName = "Nike React Infinity Run Flyknit Premium";
-        String expectedTitle = "Женская беговая обувь";
-        String expectedColor = "Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey";
-        String expectedSize = "9 (RU 39,5)";
-        String expectedPrice = "12 999,00 ₽";
-        String expectedCount = "1";
-
         WebElement actualNameWE = driver.findElement(By.xpath("//*[contains(@class, 'e5pihrt0')]"));
         WebElement actualTitleWE = driver.findElement(By.xpath("//*[contains(@class, 'css-ommkxx')]"));
         WebElement actualColorWE = driver.findElement(By.xpath("//*[contains(@class, 'css-ydoq90')]"));
@@ -61,12 +54,12 @@ public class WebDriverSeleniumHQTest {
         String actualPrice = actualPriceWE.getText();
         String actualCount = actualCountWE.getText();
 
-        Assert.assertEquals(expectedName, actualName);
-        Assert.assertEquals(expectedTitle, actualTitle);
-        Assert.assertEquals(expectedColor, actualColor);
-        Assert.assertEquals(expectedSize, actualSize);
-        Assert.assertEquals(expectedPrice, actualPrice);
-        Assert.assertEquals(expectedCount, actualCount);
+        Assert.assertEquals("Nike React Infinity Run Flyknit Premium", actualName);
+        Assert.assertEquals("Женская беговая обувь", actualTitle);
+        Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColor);
+        Assert.assertEquals("9 (RU 39,5)", actualSize);
+        Assert.assertEquals("12 999,00 ₽", actualPrice);
+        Assert.assertEquals("1", actualCount);
     }
 
     @AfterMethod (alwaysRun = true)
