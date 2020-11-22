@@ -7,18 +7,24 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import  org.apache.http.cookie.*;
 import java.util.List;
 
 public class WebDriverSeleniumHQTest {
+    private WebDriver driver;
 
-    @Test
+    @BeforeMethod (alwaysRun = true)
+    public void browserSetup(){
+        driver = new ChromeDriver();
+    }
+
+    @Test (description = "Add sneakers to card")
     public void addSneakersToCartTest() {
-        WebDriver driver = new ChromeDriver();
         driver.get("https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
         driver.manage().window().maximize();
-//        driver.manage().addCookie(new Cookie("key", "value"));
 
         WebElement closeLocation = waitForElementLocatedBy(driver, By.xpath("//i[@class='g72-x-circle fs32-nav-sm nav-color-black']"));
         closeLocation.click();
@@ -41,21 +47,34 @@ public class WebDriverSeleniumHQTest {
         String expectedPrice = "12 999,00 ₽";
         String expectedCount = "1";
 
-        WebElement actualName = driver.findElement(By.xpath("//*[contains(@class, 'e5pihrt0')]"));
-        WebElement actualTitle = driver.findElement(By.xpath("//*[contains(@class, 'css-ommkxx')]"));
-        WebElement actualColor = driver.findElement(By.xpath("//*[contains(@class, 'css-ydoq90')]"));
-        WebElement actualSize = driver.findElement(By.xpath("//*[@value='70a3beda-fc15-59f0-95e9-82d145240dd1']"));
-        WebElement actualPrice = driver.findElement(By.xpath("//*[contains(@class, 'ew71yvl1')]"));
-        WebElement actualCount = driver.findElement(By.xpath("//*[@value='1']"));
+        WebElement actualNameWE = driver.findElement(By.xpath("//*[contains(@class, 'e5pihrt0')]"));
+        WebElement actualTitleWE = driver.findElement(By.xpath("//*[contains(@class, 'css-ommkxx')]"));
+        WebElement actualColorWE = driver.findElement(By.xpath("//*[contains(@class, 'css-ydoq90')]"));
+        WebElement actualSizeWE = driver.findElement(By.xpath("//*[@value='70a3beda-fc15-59f0-95e9-82d145240dd1']"));
+        WebElement actualPriceWE = driver.findElement(By.xpath("//*[contains(@class, 'ew71yvl1')]"));
+        WebElement actualCountWE = driver.findElement(By.xpath("//*[@value='1']"));
 
-        Assert.assertEquals(expectedName, actualName.getText());
-        Assert.assertEquals(expectedTitle, actualTitle.getText());
-        Assert.assertEquals(expectedColor, actualColor.getText());
-        Assert.assertEquals(expectedSize, actualSize.getText());
-        Assert.assertEquals(expectedPrice, actualPrice.getText());
-        Assert.assertEquals(expectedCount, actualCount.getText());
+        String actualName = actualNameWE.getText();
+        String actualTitle = actualTitleWE.getText();
+        String actualColor = actualColorWE.getText();
+        String actualSize = actualSizeWE.getText();
+        String actualPrice = actualPriceWE.getText();
+        String actualCount = actualCountWE.getText();
 
+//        wait.until(ExpectedConditions.textToBePresentInElement(actualName, "Nike React Infinity Run Flyknit Premium"));
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedTitle, actualTitle);
+        Assert.assertEquals(expectedColor, actualColor);
+        Assert.assertEquals(expectedSize, actualSize);
+        Assert.assertEquals(expectedPrice, actualPrice);
+        Assert.assertEquals(expectedCount, actualCount);
+    }
+
+    @AfterMethod (alwaysRun = true)
+    public void browserTearDown(){
         driver.quit();
+        driver=null;
     }
 
     private static WebElement waitForElementLocatedBy(WebDriver driver, By by) {
