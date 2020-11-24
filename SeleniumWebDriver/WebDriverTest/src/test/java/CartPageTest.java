@@ -1,15 +1,16 @@
-package pageobject_model.page;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import page.CartPage;
+import page.SneakersPage;
+import properties.ConfProperties;
 
 import java.util.concurrent.TimeUnit;
 
-public class HomePageTest {
+public class CartPageTest {
     public static SneakersPage sneakersPage;
     public static CartPage cartPage;
     public static WebDriver driver;
@@ -51,26 +52,26 @@ public class HomePageTest {
         Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColor);
     }
 
-    @Test
-    public void checkSizeTest(){
-        addSneakers();
-        String actualSize = cartPage.getSize();
-        Assert.assertEquals("9 (RU 39,5)", actualSize);
-    }
+//    @Test
+//    public void checkSizeTest(){
+//        addSneakers();
+//        String actualSize = cartPage.getSize();
+//        Assert.assertEquals("9 (RU 39,5)", actualSize);
+//    }
 
-    @Test
-    public void checkPriceTest(){
-        addSneakers();
-        String actualPrice = cartPage.getPrice();
-        Assert.assertEquals("12 999,00 ₽", actualPrice);
-    }
+//    @Test
+//    public void checkPriceTest(){
+//        addSneakers();
+//        String actualPrice = cartPage.getPrice();
+//        Assert.assertEquals("12 999,00 ₽", actualPrice);
+//    }
 
-    @Test
-    public void checkCountTest(){
-        addSneakers();
-        String actualCount = cartPage.getCount();
-        Assert.assertEquals("1", actualCount);
-    }
+//    @Test
+//    public void checkCountTest(){
+//        addSneakers();
+//        String actualCount = cartPage.getCount();
+//        Assert.assertEquals("1", actualCount);
+//    }
 
     @AfterClass
     public static void tearDown(){

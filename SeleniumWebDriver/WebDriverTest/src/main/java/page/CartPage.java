@@ -1,4 +1,4 @@
-package pageobject_model.page;
+package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +28,7 @@ public class CartPage {
     @FindBy(xpath = "//*[@value='70a3beda-fc15-59f0-95e9-82d145240dd1']")
     private WebElement actualSizeWE;
 
-    @FindBy(xpath = "//*[contains(@class, 'ew71yvl1')]")
+    @FindBy(xpath = "//*[contains(@value, '82d145240dd1')]")
     private WebElement actualPriceWE;
 
     @FindBy(xpath = "//*[@value='1']")

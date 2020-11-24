@@ -1,4 +1,4 @@
-package pageobject_model.page;
+package properties;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -8,7 +8,7 @@ public class ConfProperties {
     protected static Properties PROPERTIES;
     static {
         try {
-            fileInputStream = new FileInputStream("src/test/java/pageobject_model/resources/conf.properties");
+            fileInputStream = new FileInputStream("src/main/resources/conf.properties");
             PROPERTIES = new Properties();
             PROPERTIES.load(fileInputStream);
         } catch (IOException e) {
