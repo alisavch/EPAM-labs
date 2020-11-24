@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SneakersPage {
-    public WebDriver driver;
+    WebDriver driver;
     public SneakersPage(WebDriver driver){
         PageFactory.initElements(driver, this);
         this.driver=driver;
@@ -17,8 +17,6 @@ public class SneakersPage {
     //xpath = "//i[@class='g72-x-circle fs32-nav-sm']"
     @FindBy(xpath = "//i[@class='g72-x-circle fs32-nav-sm nav-color-black']")
     private WebElement closePopUpWindowLocation;
-
-
 
     @FindBy(xpath = "//label[@class='css-xf3ahq'][text()='US 9 (RU 39,5)']")
     private WebElement chooseSize;
