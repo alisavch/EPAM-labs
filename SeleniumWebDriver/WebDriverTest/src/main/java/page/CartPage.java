@@ -35,15 +35,21 @@ public class CartPage {
     private WebElement actualCountWE;
 
     public String getName(){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(
                 By.xpath("//*[contains(@class, 'e5pihrt0')]")));
         return actualNameWE.getText();
     }
     public String getTitle(){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(@class, 'css-ommkxx')]")));
         return actualTitleWE.getText();
     }
     public String getColour(){
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//*[contains(@class, 'css-ydoq90')]")));
         return actualColourWE.getText();
     }
     public String getSize(){
