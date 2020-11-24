@@ -15,38 +15,32 @@ public class WebDriverSeleniumTest extends WebDriverSelenium{
     @Test
     public void verifyName() {
         WebElement actualNameWE = driver.findElement(By.xpath("//*[contains(@class, 'e5pihrt0')]"));
-        String actualName = actualNameWE.getText();
-        Assert.assertEquals("Nike React Infinity Run Flyknit Premium", actualName);
+        Assert.assertEquals("Nike React Infinity Run Flyknit Premium", actualNameWE.getText().trim());
     }
     @Test
     public void verifyTitle() {
         WebElement actualTitleWE = driver.findElement(By.xpath("//*[contains(@class, 'css-ommkxx')]"));
-        String actualTitle = actualTitleWE.getText();
-        Assert.assertEquals("Женская беговая обувь", actualTitle);
+        Assert.assertEquals("Женская беговая обувь", actualTitleWE.getText().trim());
     }
     @Test
     public void verifyColour() {
         WebElement actualColourWE = driver.findElement(By.xpath("//*[contains(@class, 'css-ydoq90')]"));
-        String actualColour = actualColourWE.getText();
-        Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColour);
+        Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColourWE.getText().trim());
     }
 //    @Test
 //    public void verifySize() {
 //        WebElement actualSizeWE = driver.findElement(By.xpath("//*[@value='70a3beda-fc15-59f0-95e9-82d145240dd1']"));
-//        String actualSize = actualSizeWE.getText();
-//        Assert.assertEquals("9 (RU 39,5)", actualSize);
+//        Assert.assertEquals("9 (RU 39,5)", actualSizeWE.getText().trim());
 //    }
 //    @Test
 //    public void verifyPrice() {
 //        WebElement actualPriceWE = driver.findElement(By.xpath("//*[contains(@class, 'ew71yvl1')]"));
-//        String actualPrice = actualPriceWE.getText();
-//        Assert.assertEquals("12 999,00 ₽", actualPrice);
+//        Assert.assertEquals("12 999,00 ₽", actualPriceWE.getText().trim());
 //    }
 //    @Test
 //    public void verifyCount() {
 //        WebElement actualCountWE = driver.findElement(By.xpath("//*[@value='1']"));
-//        String actualCount = actualCountWE.getText();
-//        Assert.assertEquals("1", actualCount);
+//        Assert.assertEquals("1", actualCountWE.getText().trim());
 //    }
     @AfterTest
     public void tearDown(){

@@ -18,7 +18,7 @@ public class SneakersPage {
     @FindBy(xpath = "//i[@class='g72-x-circle fs32-nav-sm nav-color-black']")
     private WebElement closePopUpWindowLocation;
 
-    @FindBy(xpath = "//label[@class='css-xf3ahq'][text()='US 9 (RU 39,5)']")
+    @FindBy(xpath = "//*[contains(@for, 'skuAndSize__24898615')]")
     private WebElement chooseSize;
 
     @FindBy(xpath = "//button[contains(@class,'add-to-cart-btn')]")
