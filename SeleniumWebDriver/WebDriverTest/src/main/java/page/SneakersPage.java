@@ -12,10 +12,7 @@ public class SneakersPage {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
         this.driver=driver;
     }
-    ////i[@class='g72-x-circle fs32-nav-sm nav-color-black']
-    //xpath = "//i[@class='g72-x-circle fs32-nav-sm']"
-//    @FindBy(xpath="//*[text()='Россия']")
-//    private WebElement location;
+
     @FindBy(xpath = "//i[@class='g72-x-circle fs32-nav-sm']")
     private WebElement closePopUpWindowLocation;
 
@@ -28,9 +25,7 @@ public class SneakersPage {
     @FindBy(xpath = "//*[@id='nav-cart']/a")
     private WebElement goToCart;
 
-//    public void clickLocation(){
-//        location.click();
-//    }
+
     public void clickClosePopUpWindow(){
         closePopUpWindowLocation.click();
     }
