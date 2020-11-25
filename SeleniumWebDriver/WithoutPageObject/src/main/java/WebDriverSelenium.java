@@ -20,11 +20,8 @@ public class WebDriverSelenium{
 //      clickToClose.click();
         WebElement sizeBtn = driver.findElement(By.xpath("//*[contains(@for, 'skuAndSize__24898615')]"));
         sizeBtn.click();
-        WebElement addToBag = waitForElementLocatedBy(driver, By.xpath("//button[contains(@class,'add-to-cart-btn')]"));
+        WebElement addToBag = waitForElementLocatedBy(driver, By.xpath("//*[contains(@class,'add-to-cart-btn')]"));
         addToBag.click();
-        new WebDriverWait(driver, 10)
-                .until(ExpectedConditions
-                        .presenceOfAllElementsLocatedBy(By.xpath("//*[@id='nav-cart']/a")));
         WebElement cart = waitForElementLocatedBy(driver, By.xpath("//*[@id='nav-cart']/a"));
         cart.click();
         closeLocation.click();
