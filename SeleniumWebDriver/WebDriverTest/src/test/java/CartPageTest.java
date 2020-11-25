@@ -18,15 +18,16 @@ public class CartPageTest {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(ConfProperties.getProperty("homepage"));
         sneakersPage = new SneakersPage(driver);
         cartPage = new CartPage(driver);
+//      sneakersPage.clickLocation();
         sneakersPage.clickClosePopUpWindow();
         sneakersPage.clickChooseSize();
         sneakersPage.clickAddToCart();
         sneakersPage.clickGoToCart();
-        //sneakersPage.clickClosePopUpWindow();
+//      sneakersPage.clickClosePopUpWindow();
     }
     @Test
     public void checkNameText(){
