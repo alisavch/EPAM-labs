@@ -14,8 +14,9 @@ public class SneakersPage {
         PageFactory.initElements(driver, this);
         this.driver=driver;
     }
+    ////i[@class='g72-x-circle fs32-nav-sm nav-color-black']
     //xpath = "//i[@class='g72-x-circle fs32-nav-sm']"
-    @FindBy(xpath = "//i[@class='g72-x-circle fs32-nav-sm nav-color-black']")
+    @FindBy(xpath = "//i[@class='g72-x-circle fs32-nav-sm']")
     private WebElement closePopUpWindowLocation;
 
     @FindBy(xpath = "//*[contains(@for, 'skuAndSize__24898615')]")

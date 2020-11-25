@@ -30,18 +30,18 @@ public class WebDriverSeleniumTest extends WebDriverSelenium{
     public void verifyColour() {
         Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColourWE.getText().trim());
     }
-    @Test
-    public void verifySize() {
-        Assert.assertEquals("9 (RU 39,5)", actualSizeWE.getText().trim());
-    }
-    @Test
-    public void verifyPrice() {
-        Assert.assertEquals("12 999,00 ₽", actualPriceWE.getText().trim());
-    }
-    @Test
-    public void verifyCount() {
-        Assert.assertEquals("1", actualCountWE.getText().trim());
-    }
+//    @Test
+//    public void verifySize() {
+//        Assert.assertEquals("9 (RU 39,5)", actualSizeWE.getText().trim());
+//    }
+//    @Test
+//    public void verifyPrice() {
+//        Assert.assertEquals("12 999,00 ₽", actualPriceWE.getText().trim());
+//    }
+//    @Test
+//    public void verifyCount() {
+//        Assert.assertEquals("1", actualCountWE.getText().trim());
+//    }
     @AfterTest
     public void tearDown(){
         driver.quit();

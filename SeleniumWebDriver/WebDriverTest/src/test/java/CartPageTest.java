@@ -1,9 +1,7 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import page.CartPage;
 import page.SneakersPage;
 import properties.ConfProperties;
@@ -15,7 +13,7 @@ public class CartPageTest {
     public static CartPage cartPage;
     public static WebDriver driver;
 
-    @BeforeClass
+    @BeforeTest
     public void browserSetup(){
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = new ChromeDriver();
@@ -24,56 +22,42 @@ public class CartPageTest {
         driver.get(ConfProperties.getProperty("homepage"));
         sneakersPage = new SneakersPage(driver);
         cartPage = new CartPage(driver);
-    }
-    public void addSneakers(){
         sneakersPage.clickClosePopUpWindow();
         sneakersPage.clickChooseSize();
         sneakersPage.clickAddToCart();
         sneakersPage.clickGoToCart();
-        sneakersPage.clickClosePopUpWindow();
+        //sneakersPage.clickClosePopUpWindow();
     }
     @Test
     public void checkNameText(){
-        addSneakers();
-        String actualName = cartPage.getName();
-        Assert.assertEquals("Nike React Infinity Run Flyknit Premium", actualName);
+        Assert.assertEquals("Nike React Infinity Run Flyknit Premium", cartPage.getName().trim());
     }
     @Test
     public void checkTitleTest(){
-        addSneakers();
-        String actualTitle = cartPage.getTitle();
-        Assert.assertEquals("Женская беговая обувь", actualTitle);
+        Assert.assertEquals("Женская беговая обувь", cartPage.getTitle().trim());
     }
 
     @Test
     public void checkColourTest(){
-        addSneakers();
-        String actualColor = cartPage.getColour();
-        Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColor);
+        Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", cartPage.getColour().trim());
+    }
+
+    @Test
+    public void checkSizeTest(){
+        Assert.assertEquals("9 (RU 39,5)", cartPage.getSize().trim());
     }
 
 //    @Test
-//    public void checkSizeTest(){
-//        addSneakers();
-//        String actualSize = cartPage.getSize();
-//        Assert.assertEquals("9 (RU 39,5)", actualSize);
-//    }
-
-//    @Test
 //    public void checkPriceTest(){
-//        addSneakers();
-//        String actualPrice = cartPage.getPrice();
-//        Assert.assertEquals("12 999,00 ₽", actualPrice);
+//        Assert.assertEquals("12 999,00 ₽", cartPage.getPrice().trim());
 //    }
 
-//    @Test
-//    public void checkCountTest(){
-//        addSneakers();
-//        String actualCount = cartPage.getCount();
-//        Assert.assertEquals("1", actualCount);
-//    }
+    @Test
+    public void checkCountTest(){
+        Assert.assertEquals("1", cartPage.getCount().trim());
+    }
 
-    @AfterClass
+    @AfterTest
     public static void tearDown(){
         driver.quit();
         driver = null;
