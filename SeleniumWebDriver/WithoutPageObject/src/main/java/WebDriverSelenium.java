@@ -19,17 +19,17 @@ public class WebDriverSelenium {
         driver.get("https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
         driver.manage().window().maximize();
 
-//      WebElement closeLocation = waitForElementLocatedBy(driver, By.xpath("//i[@class='g72-x-circle fs32-nav-sm nav-color-black']"));
-//      closeLocation.click();
-        WebElement clickToClose = driver.findElement(By.xpath("//i[@class='g72-x-circle fs32-nav-sm']"));
-        clickToClose.click();
+      WebElement closeLocation = waitForElementLocatedBy(driver, By.xpath("//i[@class='g72-x-circle fs32-nav-sm nav-color-black']"));
+      closeLocation.click();
+//        WebElement clickToClose = driver.findElement(By.xpath("//i[@class='g72-x-circle fs32-nav-sm']"));
+//        clickToClose.click();
         WebElement sizeBtn = driver.findElement(By.xpath("//*[contains(@for, 'skuAndSize__24898615')]"));
         sizeBtn.click();
         WebElement addToBag = waitForElementLocatedBy(driver, By.xpath("//*[contains(@class,'add-to-cart-btn')]"));
         addToBag.click();
         WebElement cart = waitForElementLocatedBy(driver, By.xpath("//*[@id='nav-cart']/a"));
         cart.click();
-//      closeLocation.click();
+      closeLocation.click();
 
         actualNameWE = waitForElementLocatedBy(driver, By.xpath("//*[contains(@class, 'e5pihrt0')]"));
         actualTitleWE = waitForElementLocatedBy(driver, By.xpath("//*[contains(@class, 'css-ommkxx')]"));
