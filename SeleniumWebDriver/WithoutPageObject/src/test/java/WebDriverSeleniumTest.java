@@ -9,7 +9,7 @@ public class WebDriverSeleniumTest extends WebDriverSelenium{
     }
 
     @Test
-    public void verifyNameTest() {
+    public void verifyTest() {
         Assert.assertEquals("Nike React Infinity Run Flyknit Premium", actualNameWE.getText().trim());
         Assert.assertEquals("Женская беговая обувь", actualTitleWE.getText().trim());
         Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", actualColourWE.getText().trim());
