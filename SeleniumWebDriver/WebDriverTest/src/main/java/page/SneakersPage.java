@@ -6,15 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class SneakersPage {
-    WebDriver driver;
-    public SneakersPage(WebDriver driver){
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
-        this.driver=driver;
-    }
+public class SneakersPage extends Page{
 
-    @FindBy(xpath = "//i[@class='g72-x-circle fs32-nav-sm']")
-    private WebElement closePopUpWindowLocation;
+    public SneakersPage(WebDriver driver){
+        super(driver);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 25), this);
+    }
+    @FindBy(xpath = "//*[@id='RightRail']/div/div[1]/div/div[1]/div[1]/h2")
+    private WebElement categorySneakers;
+
+    @FindBy(xpath = "//*[@id='RightRail']/div/div[1]/div/div[1]/div[1]/h1")
+    private WebElement titleSneakers;
 
     @FindBy(xpath = "//*[contains(@for, 'skuAndSize__24898615')]")
     private WebElement chooseSize;
@@ -25,11 +27,12 @@ public class SneakersPage {
     @FindBy(xpath = "//*[@id='nav-cart']/a")
     private WebElement goToCart;
 
-
-    public void clickClosePopUpWindow(){
-        closePopUpWindowLocation.click();
+    public String getCategory(){
+        return categorySneakers.getText();
     }
-
+    public String getTitle(){
+        return titleSneakers.getText();
+    }
     public void clickChooseSize(){
         chooseSize.click();
     }

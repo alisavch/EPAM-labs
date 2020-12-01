@@ -40,7 +40,7 @@ public class WebDriverSelenium {
         actualCountWE = waitForElementLocatedBy(driver,By.xpath("//*[@value='1']"));
     }
     private static WebElement waitForElementLocatedBy(WebDriver driver, By by) {
-        return new WebDriverWait(driver, 30)
+        return new WebDriverWait(driver, 40)
                 .until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 }

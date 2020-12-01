@@ -2,13 +2,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.reporters.jq.Main;
 import page.CartPage;
 import page.SneakersPage;
+import page.MainPage;
 import properties.ConfProperties;
 
-import java.util.concurrent.TimeUnit;
-
 public class CartPageTest {
+    public  static MainPage mainPage;
     public static SneakersPage sneakersPage;
     public static CartPage cartPage;
     public static WebDriver driver;
@@ -18,41 +19,35 @@ public class CartPageTest {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(ConfProperties.getProperty("homepage"));
+        driver.manage().deleteAllCookies();
+    }
+    @Test
+    public void findSneakersTest(){
+        mainPage = new MainPage(driver);
+        sneakersPage = new SneakersPage(driver);
+        mainPage.clickClosePopUpWindow();
+        mainPage.clickSearchBtn();
+        mainPage.setClickToSearch();
+//        mainPage.clickCloseNotif();
+        mainPage.clickFilter();
+        mainPage.setClickSneakers();
+        Assert.assertEquals("Женская беговая обувь", sneakersPage.getCategory().trim());
+        Assert.assertEquals("Nike React Infinity Run Flyknit Premium", sneakersPage.getTitle().trim());
+    }
+    @Test
+    public void checkParametersText(){
         sneakersPage = new SneakersPage(driver);
         cartPage = new CartPage(driver);
-        sneakersPage.clickClosePopUpWindow();
         sneakersPage.clickChooseSize();
         sneakersPage.clickAddToCart();
         sneakersPage.clickGoToCart();
-    }
-    @Test
-    public void checkNameText(){
         Assert.assertEquals("Nike React Infinity Run Flyknit Premium", cartPage.getName().trim());
-    }
-    @Test
-    public void checkTitleTest(){
         Assert.assertEquals("Женская беговая обувь", cartPage.getTitle().trim());
-    }
-
-    @Test
-    public void checkColourTest(){
         Assert.assertEquals("Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey", cartPage.getColour().trim());
-    }
-
-    @Test
-    public void checkSizeTest(){
         Assert.assertEquals("9 (RU 39,5)", cartPage.getSize().trim());
-    }
-
-//    @Test
-//    public void checkPriceTest(){
 //        Assert.assertEquals("12 999,00 ₽", cartPage.getPrice().trim());
-//    }
-
-    @Test
-    public void checkCountTest(){
         Assert.assertEquals("1", cartPage.getCount().trim());
+
     }
 
     @AfterTest

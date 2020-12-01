@@ -6,12 +6,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class CartPage {
+public class CartPage extends  Page{
 
-    public WebDriver driver;
     public CartPage(WebDriver driver){
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
-        this.driver = driver;
+        super(driver);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
     }
 
     @FindBy(xpath = "//*[contains(@class, 'e5pihrt0')]")
