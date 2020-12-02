@@ -18,11 +18,10 @@ public class MainPage extends Page {
 
     private WebElement searchBtn;
 
+    private WebElement notif;
+
     @FindBy(xpath = "//*[@class='pre-search-btn ripple']")
     private WebElement clickToSearchBtn;
-
-    @FindBy(xpath = "//*[@class='nav-btn p0-sm hf-geomismatch-btn-secondary hf-geomismatch-btn mt2-sm']")
-    private WebElement notif;
 
     public MainPage(WebDriver driver) {
         super(driver);
@@ -31,6 +30,9 @@ public class MainPage extends Page {
     }
 
     public MainPage closeNotif(){
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        notif = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='nav-btn p0-sm hf-geomismatch-btn-secondary hf-geomismatch-btn mt2-sm']")));
         notif.click();
         return this;
     }
