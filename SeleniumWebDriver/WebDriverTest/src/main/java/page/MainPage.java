@@ -21,10 +21,18 @@ public class MainPage extends Page {
     @FindBy(xpath = "//*[@class='pre-search-btn ripple']")
     private WebElement clickToSearchBtn;
 
+    @FindBy(xpath = "//*[@class='nav-btn p0-sm hf-geomismatch-btn-secondary hf-geomismatch-btn mt2-sm']")
+    private WebElement notif;
+
     public MainPage(WebDriver driver) {
         super(driver);
         driver.get(ConfProperties.getProperty("homepage"));
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
+    }
+
+    public MainPage closeNotif(){
+        notif.click();
+        return this;
     }
 
     public PopUpWindow clickClosePopUpWindow() {
