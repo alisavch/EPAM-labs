@@ -4,7 +4,6 @@ import model.ProductInfo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,13 +19,13 @@ public class CartPage extends  Page {
 
     public CartPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
     private final String selectedSizeLocator = "//option[normalize-space()='9 (RU 39,5)']";
 
     public List<ProductInfo> getInCartProductInfo() {
-        By productsInfoLocator = By.cssSelector("div.css-1930mmg ezer4f61");
+        By productsInfoLocator = By.xpath("//*[@class='css-1930mmg ezer4f61']");
         Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
 

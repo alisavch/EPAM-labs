@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class PopUpWindow extends Page{
+public class PopUpWindow extends Page {
 
     private final Page previousPage;
 
@@ -16,12 +16,11 @@ public class PopUpWindow extends Page{
     public PopUpWindow(WebDriver driver, Page previousPage) {
         super(driver);
         this.previousPage = previousPage;
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 15), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
     }
 
     public Page closeWindow() {
         closePopUpWindowLocation.click();
         return this.previousPage;
     }
-
 }

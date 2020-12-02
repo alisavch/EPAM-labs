@@ -2,33 +2,35 @@ package page;
 
 import model.Size;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.time.Duration;
 
 public class SneakersPage extends Page {
 
-    @FindBy(css = "div.pr2-sm css-1ou6bb2 h2.headline-5-small pb1-sm d-sm-ib css-1ppcdci")
+    private final String selectSizeLocator = "//div//label[normalize-space()='$']";
+
+    @FindBy(xpath = "//div[@class='mb2-sm']//h2[@class='headline-5-small pb1-sm d-sm-ib css-1ppcdci']")
     private WebElement categorySneakers;
 
-    @FindBy(css = "div.pr2-sm css-1ou6bb2 h2.headline-2 css-zis9ta")
+    @FindBy(xpath = "//div[@class='mb2-sm']//h1[@class='headline-2 css-zis9ta']")
     private WebElement titleSneakers;
 
-    @FindBy(xpath = "//button[contains(@class,'add-to-cart-btn')]")
     private WebElement addToCart;
 
-    @FindBy(xpath = "//*[@id='nav-cart']/a")
     private WebElement goToCart;
 
     public SneakersPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 15), this);
-    }
-
-    public String getCategory() {
-        return categorySneakers.getText();
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 7), this);
     }
 
     public String getTitle() {
@@ -36,19 +38,26 @@ public class SneakersPage extends Page {
     }
 
     public SneakersPage clickChooseSize(Size size) {
-        String selectSizeLocator = "//label[normalize-space()='US 9 $'] ";
-        WebElement chooseSize = driver.findElement(By.xpath(selectSizeLocator.replace("$", size.getSize())));
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        WebElement chooseSize = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selectSizeLocator.replace("$", size.getSize()))));
         chooseSize.click();
         return this;
     }
 
     public SneakersPage clickAddToCart() {
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        addToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='floating-atc-wrapper']//button[contains(@class,'add-to-cart-btn')]")));
         addToCart.click();
         return this;
     }
 
-    public SneakersPage clickGoToCart() {
+    public CartPage clickGoToCart() {
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        goToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='nav-cart']")));
         goToCart.click();
-        return this;
+        return new CartPage(driver);
     }
 }
