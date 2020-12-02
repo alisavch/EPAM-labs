@@ -30,7 +30,6 @@ public class CartPageTest {
 
     @Test
     public void findSneakersTest() {
-        driver.manage().deleteAllCookies();
         mainPage = new MainPage(driver);
         mainPage.clickClosePopUpWindow().closeWindow();
         sneakersPage = mainPage
@@ -44,7 +43,6 @@ public class CartPageTest {
 
     @Test
     public void checkParametersText() {
-        driver.manage().deleteAllCookies();
         mainPage = new MainPage(driver);
         mainPage.clickClosePopUpWindow().closeWindow();
         sneakersPage = mainPage

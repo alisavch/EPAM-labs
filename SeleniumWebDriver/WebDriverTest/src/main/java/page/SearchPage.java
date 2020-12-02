@@ -18,12 +18,12 @@ public class SearchPage extends Page {
 
     public SearchPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 7), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
     private final String btnFilterColour = "//button[normalize-space()='$']";
 
-    @FindBy(xpath = "//a[@aria-label='Nike React Infinity Run Flyknit Premium']")
+//    @FindBy(xpath = "//div[@class='product-card__body']//a[text()='Nike React Infinity Run Flyknit Premium']")
     private WebElement clickSneakersBtn;
 
     public SearchPage clickFilter(Colour colour) {
@@ -35,6 +35,9 @@ public class SearchPage extends Page {
     }
 
     public SneakersPage clickSneakers() {
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        WebElement clickSneakersBtn = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='product-card__body']//a[text()='Nike React Infinity Run Flyknit Premium']")));
         clickSneakersBtn.click();
         return new SneakersPage(driver);
     }

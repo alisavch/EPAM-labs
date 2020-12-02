@@ -18,9 +18,6 @@ public class SneakersPage extends Page {
 
     private final String selectSizeLocator = "//div//label[normalize-space()='$']";
 
-    @FindBy(xpath = "//div[@class='mb2-sm']//h2[@class='headline-5-small pb1-sm d-sm-ib css-1ppcdci']")
-    private WebElement categorySneakers;
-
     @FindBy(xpath = "//div[@class='mb2-sm']//h1[@class='headline-2 css-zis9ta']")
     private WebElement titleSneakers;
 
@@ -54,7 +51,7 @@ public class SneakersPage extends Page {
     }
 
     public CartPage clickGoToCart() {
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(3))
                 .ignoring(NoSuchElementException.class);
         goToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='nav-cart']")));
         goToCart.click();
