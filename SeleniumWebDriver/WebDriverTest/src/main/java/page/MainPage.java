@@ -9,45 +9,30 @@ import properties.ConfProperties;
 
 public class MainPage extends Page {
 
-    public MainPage(WebDriver driver){
-        super(driver);
-        driver.get(ConfProperties.getProperty("homepage"));
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 60), this);
-    }
-    @FindBy(xpath = "//a[@title='Россия']")
-    private WebElement closePopUpWindowLocation;
-
-    @FindBy(xpath = "//*[@data-var='closeBtn'] ")
-    private WebElement closeNotif;
-
     @FindBy(xpath = "//*[@id='VisualSearchInput']")
     private WebElement searchBtn;
 
     @FindBy(xpath = "//*[@class='pre-search-btn ripple']")
-    private WebElement clickToSearch;
+    private WebElement clickToSearchBtn;
 
-    @FindBy(xpath = "//span[text()='Пурпурный'] ")
-    private WebElement filterColor;
+    public MainPage(WebDriver driver) {
+        super(driver);
+        driver.get(ConfProperties.getProperty("homepage"));
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 25), this);
+    }
 
-    @FindBy(xpath = "//a[@aria-label='Nike React Infinity Run Flyknit Premium']")
-    private WebElement clickSneakers;
+    public PopUpWindow clickClosePopUpWindow() {
+        return new PopUpWindow(driver, this);
+    }
 
-    public void clickClosePopUpWindow(){
-        closePopUpWindowLocation.click();
+    public MainPage clickSearchBtn(String search) {
+        searchBtn.sendKeys(search);
+        return this;
     }
-    public void clickCloseNotif(){
-        closeNotif.click();
+
+    public MainPage clickToSearch() {
+        clickToSearchBtn.click();
+        return this;
     }
-    public void clickSearchBtn(){
-        searchBtn.sendKeys("Nike React Infinity Run Flyknit Premium");
-    }
-    public void setClickToSearch(){
-        clickToSearch.click();
-    }
-    public void clickFilter(){
-        filterColor.click();
-    }
-    public void setClickSneakers(){
-        clickSneakers.click();
-    }
+
 }
