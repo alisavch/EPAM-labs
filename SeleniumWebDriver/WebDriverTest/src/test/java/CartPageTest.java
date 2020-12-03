@@ -46,7 +46,7 @@ public class CartPageTest {
         mainPage = new MainPage(driver);
 //        mainPage.clickClosePopUpWindow().closeWindow();
         sneakersPage = mainPage
-                .closeNotif()
+//                .closeNotif()
                 .clickSearchBtn(inputSearch)
                 .clickToSearch()
                 .clickFilter(Colour.purpe)
