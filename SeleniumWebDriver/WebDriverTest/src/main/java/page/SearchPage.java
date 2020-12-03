@@ -21,23 +21,24 @@ public class SearchPage extends Page {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
-    private final String btnFilterColour = "//button[normalize-space()='$']";
+    private final String BTNFILTERCOLOUR = "//button[normalize-space()='$']";
 
-//    @FindBy(xpath = "//div[@class='product-card__body']//a[text()='Nike React Infinity Run Flyknit Premium']")
+    private WebElement filterColour;
+
     private WebElement clickSneakersBtn;
 
     public SearchPage clickFilter(Colour colour) {
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(5)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        WebElement filterColour = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(btnFilterColour.replace("$", colour.getColour()))));
+        filterColour = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(BTNFILTERCOLOUR.replace("$", colour.getColour()))));
         filterColour.click();
         return this;
     }
 
     public SneakersPage clickSneakers() {
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(25)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        WebElement clickSneakersBtn = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='product-card__body']//a[text()='Nike React Infinity Run Flyknit Premium']")));
+        clickSneakersBtn = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='product-card__body']//a[text()='Nike React Infinity Run Flyknit Premium']")));
         clickSneakersBtn.click();
         return new SneakersPage(driver);
     }

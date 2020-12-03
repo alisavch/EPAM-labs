@@ -16,10 +16,12 @@ import java.time.Duration;
 
 public class SneakersPage extends Page {
 
-    private final String selectSizeLocator = "//div//label[normalize-space()='$']";
+    private final String SELECTSIZELOCATOR = "//div//label[normalize-space()='$']";
 
     @FindBy(xpath = "//div[@class='mb2-sm']//h1[@class='headline-2 css-zis9ta']")
     private WebElement titleSneakers;
+
+    private WebElement chooseSize;
 
     private WebElement addToCart;
 
@@ -37,7 +39,7 @@ public class SneakersPage extends Page {
     public SneakersPage clickChooseSize(Size size) {
         Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        WebElement chooseSize = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(selectSizeLocator.replace("$", size.getSize()))));
+        chooseSize = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SELECTSIZELOCATOR.replace("$", size.getSize()))));
         chooseSize.click();
         return this;
     }
@@ -51,7 +53,7 @@ public class SneakersPage extends Page {
     }
 
     public CartPage clickGoToCart() {
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(3))
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(3))
                 .ignoring(NoSuchElementException.class);
         goToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='nav-cart']")));
         goToCart.click();

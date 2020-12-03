@@ -31,9 +31,9 @@ public class CartPageTest {
     @Test
     public void findSneakersTest() {
         mainPage = new MainPage(driver);
-        mainPage.clickClosePopUpWindow().closeWindow();
+        mainPage.closeNotif();
+//                .clickClosePopUpWindow().closeWindow();
         sneakersPage = mainPage
-                .closeNotif()
                 .clickSearchBtn(inputSearch)
                 .clickToSearch()
                 .clickFilter(Colour.purpe)
@@ -44,7 +44,7 @@ public class CartPageTest {
     @Test
     public void checkParametersText() {
         mainPage = new MainPage(driver);
-        mainPage.clickClosePopUpWindow().closeWindow();
+//        mainPage.clickClosePopUpWindow().closeWindow();
         sneakersPage = mainPage
                 .closeNotif()
                 .clickSearchBtn(inputSearch)
@@ -58,6 +58,7 @@ public class CartPageTest {
         List<ProductInfo> productInfoList = cartPage.getInCartProductInfo();
         Assert.assertEquals(productInfoList.get(0).name, "Nike React Infinity Run Flyknit Premium");
         Assert.assertEquals(productInfoList.get(0).title, "Женская беговая обувь");
+        Assert.assertEquals(productInfoList.get(0).colour, "Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey");
     }
 
     @AfterTest
