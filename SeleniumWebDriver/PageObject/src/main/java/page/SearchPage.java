@@ -25,6 +25,9 @@ public class SearchPage extends Page {
 
     private WebElement filterColour;
 
+    private WebElement subscribe;
+
+    @FindBy (xpath = "//div[@class='product-card css-1ikfoht css-z5nr6i css-11ziap1 css-zk7jxt css-dpr2cn product-grid__card ']//a[text()='Nike React Infinity Run Flyknit Premium']")
     private WebElement clickSneakersBtn;
 
     public SearchPage clickFilter(Colour colour) {
@@ -35,10 +38,15 @@ public class SearchPage extends Page {
         return this;
     }
 
-    public SneakersPage clickSneakers() {
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(25)).pollingEvery(Duration.ofSeconds(1))
+    public SearchPage clickSubscribe(){
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        clickSneakersBtn = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='product-card__body']//a[text()='Nike React Infinity Run Flyknit Premium']")));
+        subscribe = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='bluecoreCloseButton']")));
+        subscribe.click();
+        return this;
+    }
+
+    public SneakersPage clickSneakers() {
         clickSneakersBtn.click();
         return new SneakersPage(driver);
     }

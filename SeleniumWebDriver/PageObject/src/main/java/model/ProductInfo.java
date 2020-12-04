@@ -20,11 +20,11 @@ public class ProductInfo implements Comparable<ProductInfo> {
 
     public int compareTo(ProductInfo object) {
         if(name.compareTo(object.name) == 0 &&
-            title.compareTo(object.title) == 0 &&
-            colour.compareTo(object.colour) == 0 &&
-            size.compareTo(object.size) == 0 &&
-            price.compareTo(object.price) == 0 &&
-            count.compareTo(object.count)==0)
+                title.compareTo(object.title) == 0 &&
+                colour.compareTo(object.colour) == 0 &&
+                size.compareTo(object.size) == 0 &&
+                price.compareTo(object.price) == 0 &&
+                count.compareTo(object.count)==0)
             return 0;
         if(name.compareTo(object.name) > 0 )
             return 1;

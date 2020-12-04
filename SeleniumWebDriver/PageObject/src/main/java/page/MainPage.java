@@ -18,8 +18,6 @@ public class MainPage extends Page {
 
     private WebElement searchBtn;
 
-    private WebElement notif;
-
     @FindBy(xpath = "//*[@class='pre-search-btn ripple']")
     private WebElement clickToSearchBtn;
 
@@ -27,14 +25,6 @@ public class MainPage extends Page {
         super(driver);
         driver.get(ConfProperties.getProperty("homepage"));
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
-    }
-
-    public MainPage closeNotif(){
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
-                .ignoring(NoSuchElementException.class);
-        notif = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='nav-btn p0-sm hf-geomismatch-btn-secondary hf-geomismatch-btn mt2-sm']")));
-        notif.click();
-        return this;
     }
 
     public PopUpWindow clickClosePopUpWindow() {

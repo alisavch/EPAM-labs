@@ -11,6 +11,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import properties.ConfProperties;
 
 import java.time.Duration;
 
@@ -29,11 +30,16 @@ public class SneakersPage extends Page {
 
     public SneakersPage(WebDriver driver) {
         super(driver);
+        driver.get(ConfProperties.getProperty("sneakerspage"));
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 7), this);
     }
 
     public String getTitle() {
         return titleSneakers.getText();
+    }
+
+    public PopUpWindow clickClosePopUpWindow() {
+        return new PopUpWindow(driver, this);
     }
 
     public SneakersPage clickChooseSize(Size size) {
@@ -53,7 +59,7 @@ public class SneakersPage extends Page {
     }
 
     public CartPage clickGoToCart() {
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(3))
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
         goToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='nav-cart']")));
         goToCart.click();
