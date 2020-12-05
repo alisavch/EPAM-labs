@@ -1,7 +1,6 @@
 import model.Colour;
 import model.ProductInfo;
 import model.Size;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -15,7 +14,6 @@ import java.util.List;
 
 public class SneakersTest {
 
-    public static CartPage cartPage;
     public static MainPage mainPage;
     public static SneakersPage sneakersPage;
     public static WebDriver driver;
@@ -25,7 +23,6 @@ public class SneakersTest {
     private static final String expectedTitle = "Женская беговая обувь";
     private static final String expectedColour = "Фиолетовый пепел/Розовый взрыв/Ярко-розовый/Dark Smoke Grey";
     private static final String expectedSize = "9 (RU 39,5)";
-    private static final String expectedPrice ="10 480,00 ₽";
     private static final String expectedCount = "1";
 
     @BeforeSuite
@@ -45,7 +42,8 @@ public class SneakersTest {
                 .clickToSearch()
                 .clickFilter(Colour.purpe)
                 .clickSneakers();
-        Assert.assertEquals(sneakersPage.getTitle().trim(),expectedName);
+        Assert.assertEquals(sneakersPage.getName().trim(),expectedName);
+        Assert.assertEquals(sneakersPage.getTitle().trim(),expectedTitle);
     }
 
     @Test(priority = 1)
@@ -68,5 +66,4 @@ public class SneakersTest {
         driver.quit();
         driver = null;
     }
-
 }

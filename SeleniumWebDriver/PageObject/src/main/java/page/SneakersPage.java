@@ -20,6 +20,9 @@ public class SneakersPage extends Page {
     private final String SELECTSIZELOCATOR = "//div//label[normalize-space()='$']";
 
     @FindBy(xpath = "//div[@class='mb2-sm']//h1[@class='headline-2 css-zis9ta']")
+    private WebElement nameSneakers;
+
+    @FindBy(xpath = "//div[@class='mb2-sm']//h2[@class='headline-5-small pb1-sm d-sm-ib css-1ppcdci'] ")
     private WebElement titleSneakers;
 
     private WebElement chooseSize;
@@ -34,12 +37,12 @@ public class SneakersPage extends Page {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 7), this);
     }
 
-    public String getTitle() {
-        return titleSneakers.getText();
+    public String getName(){
+        return nameSneakers.getText();
     }
 
-    public PopUpWindow clickClosePopUpWindow() {
-        return new PopUpWindow(driver, this);
+    public String getTitle() {
+        return titleSneakers.getText();
     }
 
     public SneakersPage clickChooseSize(Size size) {
