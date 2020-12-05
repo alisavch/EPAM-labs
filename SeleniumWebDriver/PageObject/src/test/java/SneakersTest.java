@@ -60,7 +60,6 @@ public class SneakersTest {
         Assert.assertEquals(productInfoList.get(0).title, expectedTitle);
         Assert.assertEquals(productInfoList.get(0).colour, expectedColour);
         Assert.assertEquals(productInfoList.get(0).size, expectedSize);
-        Assert.assertEquals(productInfoList.get(0).price, expectedPrice);
         Assert.assertEquals(productInfoList.get(0).count, expectedCount);
     }
 
