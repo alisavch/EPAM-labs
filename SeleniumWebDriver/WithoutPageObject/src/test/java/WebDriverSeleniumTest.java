@@ -19,6 +19,7 @@ public class WebDriverSeleniumTest extends WebDriverSelenium {
 
     @AfterTest
     public void tearDown() {
-        driver.quit();
+        driver.close();
+        driver = null;
     }
 }
