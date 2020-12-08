@@ -1,9 +1,14 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class WebDriverSelenium {
 
@@ -23,7 +28,6 @@ public class WebDriverSelenium {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
         driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
         WebElement closeLocation = waitForElementLocatedBy(driver, By.xpath("//i[@class='g72-x-circle fs32-nav-sm nav-color-black']"));
         closeLocation.click();
         WebElement sizeBtn = driver.findElement(By.xpath("//div//label[normalize-space()='US 9 (RU 39,5)']"));
@@ -32,8 +36,10 @@ public class WebDriverSelenium {
         addToBag.click();
         WebElement cart = waitForElementLocatedBy(driver, By.xpath("//*[@id='nav-cart']"));
         cart.click();
-        WebElement closeLocation2 = waitForElementLocatedBy(driver, By.xpath("//*[@class='g72-x-circle fs32-nav-sm nav-color-black']"));
+        WebElement closeLocation2 = waitForElementLocatedBy(driver, By.xpath("//a[@title='Россия']"));
         closeLocation2.click();
+        WebElement cart2 = waitForElementLocatedBy(driver, By.xpath("//*[@id='nav-cart']"));
+        cart2.click();
 
         actualNameWE = waitForElementLocatedBy(driver, By.xpath("//*[contains(@class, 'e5pihrt0')]"));
         actualTitleWE = waitForElementLocatedBy(driver, By.xpath("//*[contains(@class, 'css-ommkxx')]"));
