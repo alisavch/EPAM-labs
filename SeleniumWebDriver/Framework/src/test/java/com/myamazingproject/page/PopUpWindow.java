@@ -1,25 +1,23 @@
-package page;
+package com.myamazingproject.page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class PopUpWindow extends Page {
 
     private final Page previousPage;
 
-    @FindBy(xpath = "//a[@title='Россия']")
+    @FindBy (xpath = "//a[@title='Россия']")
     private WebElement closePopUpWindowLocation;
 
     public PopUpWindow(WebDriver driver, Page previousPage) {
-        super(driver);
+        super(driver, previousPage.pageURL);
         this.previousPage = previousPage;
     }
 
-    public Page closeWindow() {
+    public MainPage selectCountry() {
         closePopUpWindowLocation.click();
-        return this.previousPage;
+        return new MainPage(driver, previousPage.pageURL);
     }
 }

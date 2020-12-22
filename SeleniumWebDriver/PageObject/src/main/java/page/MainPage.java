@@ -24,7 +24,6 @@ public class MainPage extends Page {
     public MainPage(WebDriver driver) {
         super(driver);
         driver.get(ConfProperties.getProperty("homepage"));
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5), this);
     }
 
     public PopUpWindow clickClosePopUpWindow() {

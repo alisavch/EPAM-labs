@@ -19,7 +19,6 @@ public class CartPage extends  Page {
 
     public CartPage(WebDriver driver) {
         super(driver);
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
     public List<ProductInfo> getInCartProductInfo() {

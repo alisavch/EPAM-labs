@@ -27,14 +27,13 @@ public class SneakersPage extends Page {
 
     private WebElement chooseSize;
 
-    private WebElement addToCart;
+    private final By addToCartLocator = By.xpath("//div[@id='floating-atc-wrapper']//button[contains(@class,'add-to-cart-btn')]");
 
-    private WebElement goToCart;
+    private final By goToCartLocator = By.xpath("//*[@id='nav-cart']");
 
     public SneakersPage(WebDriver driver) {
         super(driver);
         driver.get(ConfProperties.getProperty("sneakerspage"));
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 7), this);
     }
 
     public String getName(){
@@ -56,7 +55,7 @@ public class SneakersPage extends Page {
     public SneakersPage clickAddToCart() {
         Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(10)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        addToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='floating-atc-wrapper']//button[contains(@class,'add-to-cart-btn')]")));
+        WebElement addToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(addToCartLocator));
         addToCart.click();
         return this;
     }
@@ -64,7 +63,7 @@ public class SneakersPage extends Page {
     public CartPage clickGoToCart() {
         Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(20)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
-        goToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='nav-cart']")));
+        WebElement goToCart = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(goToCartLocator));
         goToCart.click();
         return new CartPage(driver);
     }
