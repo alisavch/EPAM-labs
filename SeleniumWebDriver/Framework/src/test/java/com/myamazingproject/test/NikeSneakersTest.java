@@ -51,5 +51,6 @@ public class NikeSneakersTest extends CommonConditions {
                 .selectSneakers();
         SneakersInfo expectedSneakers = CreateSneakers.getSneakers("first");
         assertThat(sneakersPage.getName().trim(), is(expectedSneakers.name.trim()));
+        sneakersPage.closeError();
     }
 }

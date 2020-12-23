@@ -37,6 +37,9 @@ public class SneakersPage extends Page {
     @FindBy (xpath = "//*[@class='css-bsyjwa e1n1kzst0']//*[@class='css-1brtky1 e1n1kzst1']")
     private WebElement errorLocator;
 
+    @FindBy (xpath = "//*[@class='modal-close-btn css-icpsp4 e1jdve9b0']")
+    private WebElement closeErrorLocator;
+
     @FindBy (xpath = "//*[contains(@class,'sizeHeader css-61rhf3')]")
     private WebElement chooceSizeNotificationLabel;
 
@@ -89,6 +92,11 @@ public class SneakersPage extends Page {
 
     public String getError(){
         return fluentWaitForElementLocatedBy(driver,errorLocator).getText().trim();
+    }
+
+    public SneakersPage closeError(){
+        fluentWaitForElementLocatedBy(driver, closeErrorLocator).click();
+        return this;
     }
 
     public String chooseSizeNotification() {
