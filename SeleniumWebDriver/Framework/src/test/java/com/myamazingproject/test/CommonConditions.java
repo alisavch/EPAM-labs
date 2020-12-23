@@ -15,6 +15,10 @@ public class CommonConditions {
         driver = DriverSingleton.getDriver();
     }
 
+    @BeforeMethod()
+
+    @AfterMethod()
+
     @AfterClass(alwaysRun = true)
     public void stopBrowser() {
         DriverSingleton.closeDriver();
