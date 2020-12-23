@@ -2,6 +2,7 @@ package com.myamazingproject.test;
 
 import com.myamazingproject.model.Colour;
 import com.myamazingproject.model.SneakersInfo;
+import com.myamazingproject.model.SneakersSize;
 import com.myamazingproject.other.CreateSneakers;
 import com.myamazingproject.page.MainPage;
 import com.myamazingproject.page.SneakersPage;
@@ -27,14 +28,14 @@ public class NikeSneakersTest extends CommonConditions {
                 .filterColour(Colour.purpe)
                 .selectSneakers();
         SneakersInfo expectedSneakers = CreateSneakers.getSneakers("first");
-        assertThat(sneakersPage.getName().trim(), is(expectedSneakers.name));
-        assertThat(sneakersPage.getTitle().trim(),is(expectedSneakers.title));
+        assertThat(sneakersPage.getName().trim(), is(expectedSneakers.name.trim()));
     }
 
     @Test (priority = 6)
     public void addToCartMoreThenTenTimesTest() {
-        SneakersPage sneakersPage = new SneakersPage(driver, "https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
+        sneakersPage = new SneakersPage(driver, "https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
         sneakersPage.openPage();
+        sneakersPage.chooseSize(SneakersSize.US9);
         SneakersPage.getWarning(sneakersPage);
         assertThat(sneakersPage.getError(), is("Ошибка"));
     }

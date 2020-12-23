@@ -1,12 +1,10 @@
 package com.myamazingproject.test;
 
-import com.myamazingproject.model.CardInfo;
-import com.myamazingproject.model.SneakersSize;
-import com.myamazingproject.model.SneakersInfo;
-import com.myamazingproject.model.UserInfo;
+import com.myamazingproject.model.*;
 import com.myamazingproject.other.CreateCard;
 import com.myamazingproject.other.CreateUser;
 import com.myamazingproject.page.CartPage;
+import com.myamazingproject.page.MainPage;
 import com.myamazingproject.page.OrderPage;
 import com.myamazingproject.page.SneakersPage;
 import org.testng.annotations.Test;
@@ -18,11 +16,24 @@ import static org.hamcrest.Matchers.is;
 
 public class NikeOrderTest extends CommonConditions {
 
+    public static MainPage mainPage;
+    public static SneakersPage sneakersPage;
+    public static CartPage cartPage;
+    public static UserInfo user;
+    public static CardInfo card;
+    private static final String SNEAKERS_INPUT = "Nike React";
+
     @Test (priority = 9)
     public void checkingThePriceAtCheckoutTest() {
-        SneakersPage sneakersPage = new SneakersPage(driver, "https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
-        sneakersPage.openPage();
-        CartPage cartPage = sneakersPage.chooseSize(SneakersSize.US9)
+        mainPage = new MainPage(driver, "https://www.nike.com/");
+        mainPage.openPage();
+        mainPage.popUpWindow().selectCountry();
+        sneakersPage = mainPage
+                .inputValueToSearch(SNEAKERS_INPUT)
+                .search()
+                .filterColour(Colour.purpe)
+                .selectSneakers();
+        cartPage = sneakersPage.chooseSize(SneakersSize.US9)
                 .addToCart()
                 .shoppingCart();
         List<SneakersInfo> productInfoList = cartPage.getInCartProductInfo();
@@ -34,9 +45,9 @@ public class NikeOrderTest extends CommonConditions {
 
     @Test (priority = 10)
     public void checkoutTest() {
-        UserInfo user = CreateUser.withCredentialsFromProperty();
-        CardInfo card = CreateCard.withCredentialsWithPropertyCard();
-        SneakersPage sneakersPage = new SneakersPage(driver, "https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
+        user = CreateUser.withCredentialsFromProperty();
+        card = CreateCard.withCredentialsWithPropertyCard();
+        sneakersPage = new SneakersPage(driver, "https://www.nike.com/ru/t/%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2%D1%8B%D0%B5-%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-react-infinity-run-flyknit-premium-wr2Spw/CU0430-500");
         sneakersPage.openPage();
         OrderPage cartPage = sneakersPage.chooseSize(SneakersSize.US9)
                 .addToCart()

@@ -1,6 +1,7 @@
 package com.myamazingproject.page;
 
 import com.myamazingproject.model.SneakersInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -76,9 +77,9 @@ public class CartPage extends  Page {
         List<SneakersInfo> productInfoList = new ArrayList<SneakersInfo>();
         for(WebElement productInfo : productsInfo) {
             String name = productInfo.findElement(By.xpath("//*[contains(@class, 'e5pihrt0')]")).getText().trim();
-            String title = productInfo.findElement(By.xpath("//*[contains(@class, 'css-ommkxx')]")).getText().trim();;
-            String colour = productInfo.findElement(By.xpath("//*[contains(@class, 'css-ydoq90')]")).getText().trim();;
-            String price = productInfo.findElement(By.xpath("//*[@class='ncss-row']//*[@class='price css-1uihcua ew71yvl1']")).getText().trim();;
+            String title = productInfo.findElement(By.xpath("//*[contains(@class, 'css-ommkxx')]")).getText().trim();
+            String colour = productInfo.findElement(By.xpath("//*[contains(@class, 'css-ydoq90')]")).getText().trim();
+            String price = productInfo.findElement(By.xpath("//*[@class='ncss-row']//*[@class='sale-price']")).getText().replaceAll("₽", "").trim();
             String size = null;
             if(productInfo.findElements(By.xpath("//*[@class='css-w53gby e4f9riy4'][@data-automation='size-select']")).size() > 0){
                 size = productInfo.findElement(By.xpath("//option[@value='70a3beda-fc15-59f0-95e9-82d145240dd1']")).getText().trim();

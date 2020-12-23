@@ -24,17 +24,17 @@ public class MainPage extends Page {
     }
 
     public MainPage inputValueToSearch(String search) {
-        waitForElementLocatedBy(driver, entryFieldLocator).sendKeys(search);
+        fluentWaitForElementToBeClickable(driver, entryFieldLocator).sendKeys(search);
         return this;
     }
 
     public SearchSneakersPage search() {
-        searchButtonLocator.click();
+        waitForElementLocatedBy(driver, searchButtonLocator).click();
         return new SearchSneakersPage(driver, pageURL);
     }
 
     public SearchClothesPage selectWomen() {
-        womenMenuLocator.click();
+        waitForElementLocatedBy(driver, womenMenuLocator).click();
         return new SearchClothesPage(driver, pageURL);
     }
 }

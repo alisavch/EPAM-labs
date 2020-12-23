@@ -28,12 +28,12 @@ public class SearchClothesPage extends Page{
     }
 
     public SearchClothesPage selectShorts() {
-        shortsLocator.click();
+        fluentWaitForElementLocatedBy(driver, shortsLocator).click();
         return this;
     }
 
     public boolean checkThingInTitle(String thing) {
-        String titlesArray = titleShortsLocator.getText().trim();
+        String titlesArray = fluentWaitForElementLocatedBy(driver, titleShortsLocator).getText().trim();
         return checkForContainsShorts(titlesArray, thing);
     }
 

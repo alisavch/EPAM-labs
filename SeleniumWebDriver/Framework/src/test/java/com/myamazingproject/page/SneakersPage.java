@@ -2,13 +2,19 @@ package com.myamazingproject.page;
 
 import com.myamazingproject.model.SneakersSize;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.time.Duration;
 
 public class SneakersPage extends Page {
 
-    private final String SELECTSIZELOCATOR = "//div//label[normalize-space()='$']";
+    private final String SELECTSIZELOCATOR = "//div//label[normalize-space()='%s']";
 
     @FindBy (xpath = "//div[@class='mb2-sm']//h1[@class='headline-2 css-zis9ta']")
     private WebElement nameSneakersLocator;
@@ -31,6 +37,8 @@ public class SneakersPage extends Page {
     @FindBy (xpath = "//*[@class='css-bsyjwa e1n1kzst0']//*[@class='css-1brtky1 e1n1kzst1']")
     private WebElement errorLocator;
 
+    private WebElement chooseSize;
+
     public SneakersPage(WebDriver driver, String pageURL) {
         super(driver, pageURL);
     }
@@ -48,30 +56,31 @@ public class SneakersPage extends Page {
     }
 
     public SneakersPage chooseSize(SneakersSize size) {
-        waitForElementLocatedBy(driver, (WebElement) By.xpath(SELECTSIZELOCATOR
-                .replace("$", size.getSize()))).click();
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        chooseSize = (WebElement) wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(SELECTSIZELOCATOR.replace("%s", size.getSize()))));
+        chooseSize.click();
         return this;
     }
 
     public SneakersPage addToCart() {
-        waitForElementLocatedBy(driver, addToCartLocator).click();
+        fluentWaitForElementLocatedBy(driver, addToCartLocator).click();
         return this;
     }
 
     public CartPage shoppingCart() {
-        waitForElementLocatedBy(driver, goToCartLocator).click();
+        fluentWaitForElementLocatedBy(driver, goToCartLocator).click();
         return new CartPage(driver, pageURL);
     }
 
     public SneakersPage closeNotification() {
-        waitForElementLocatedBy(driver,closeNotificationLocator).click();
+        fluentWaitForElementLocatedBy(driver,closeNotificationLocator).click();
         return this;
     }
 
     public static void getWarning(SneakersPage sneakersPage) {
-        for (int i = 0; i <= 10; i++){
-            sneakersPage.chooseSize(SneakersSize.US9)
-                    .addToCart().closeNotification();
+        for (int i = 0; i <= 10; i++) {
+            sneakersPage.addToCart().closeNotification();
         }
     }
 

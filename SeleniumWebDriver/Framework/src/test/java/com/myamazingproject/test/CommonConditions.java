@@ -13,10 +13,6 @@ public class CommonConditions {
     @BeforeClass()
     public void setUp() {
         driver = DriverSingleton.getDriver();
-    }
-
-    @AfterMethod(alwaysRun = true)
-    public void close() {
         DriverSingleton.deleteAllCookies();
     }
 

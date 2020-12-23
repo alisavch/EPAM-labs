@@ -13,6 +13,7 @@ public class NikeShortsTest extends CommonConditions{
     public void filterClothesTest() {
         MainPage mainPage = new MainPage(driver, "https://www.nike.com/");
         mainPage.openPage();
+        mainPage.popUpWindow().selectCountry();
         SearchClothesPage search = mainPage
                 .selectWomen()
                 .selectClothes()

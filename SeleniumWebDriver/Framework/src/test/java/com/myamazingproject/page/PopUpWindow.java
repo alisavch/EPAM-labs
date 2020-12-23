@@ -17,7 +17,7 @@ public class PopUpWindow extends Page {
     }
 
     public MainPage selectCountry() {
-        closePopUpWindowLocation.click();
+        fluentWaitForElementLocatedBy(driver, closePopUpWindowLocation).click();
         return new MainPage(driver, previousPage.pageURL);
     }
 }

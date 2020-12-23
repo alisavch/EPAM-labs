@@ -1,14 +1,12 @@
 package com.myamazingproject.page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
+
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Page {
 
@@ -25,27 +23,27 @@ public abstract class Page {
 
     public Page openPage() {
         this.driver.get(this.pageURL);
-        waitUntilAjaxCompleted();
+        this.driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
         return this;
     }
 
     protected static WebElement waitForElementLocatedBy(WebDriver driver, WebElement by) {
         return new WebDriverWait(driver, 60)
-                .until(ExpectedConditions.visibilityOfElementLocated((By) by));
+                .until(ExpectedConditions.visibilityOf(by));
     }
 
-    public void waitUntilAjaxCompleted() {
-        new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS)
-                .until(jQueryAJAXCompleted());
+    protected static WebElement fluentWaitForElementLocatedBy(WebDriver driver, WebElement by) {
+        return new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(60))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class).until((ExpectedConditions.visibilityOf(by)));
     }
 
-    protected static ExpectedCondition<Boolean> jQueryAJAXCompleted() {
-        return new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver driver){
-                return (Boolean) ((JavascriptExecutor)
-                        driver).executeScript("return (window.jQuery != null) && (jQuery.active === 0);");
-            }
-        };
+    protected static WebElement fluentWaitForElementToBeClickable(WebDriver driver, WebElement by) {
+        return new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(60))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class).until((ExpectedConditions.elementToBeClickable(by)));
     }
 }
 
