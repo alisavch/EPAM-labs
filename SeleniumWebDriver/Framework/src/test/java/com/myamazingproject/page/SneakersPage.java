@@ -88,7 +88,7 @@ public class SneakersPage extends Page {
     }
 
     public String getError(){
-        return errorLocator.getText().trim();
+        return fluentWaitForElementLocatedBy(driver,errorLocator).getText().trim();
     }
 
     public String chooseSizeNotification() {
