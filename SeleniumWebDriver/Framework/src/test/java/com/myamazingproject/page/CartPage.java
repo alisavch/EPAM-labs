@@ -40,7 +40,7 @@ public class CartPage extends  Page {
     }
 
     public CartPage removeFromCart() {
-        waitForElementLocatedBy(driver, removeFromCartLocator).click();
+        fluentWaitForElementLocatedBy(driver, removeFromCartLocator).click();
         return this;
     }
 

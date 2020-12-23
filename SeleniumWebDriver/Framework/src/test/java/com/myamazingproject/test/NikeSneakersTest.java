@@ -19,7 +19,7 @@ public class NikeSneakersTest extends CommonConditions {
 
     @Test (priority = 1)
     public void addToCardWithoutChooseSize() {
-        mainPage = new MainPage(driver, "https://www.nike.com/");
+        mainPage = new MainPage(driver, "https://www.nike.com");
         mainPage.openPage();
         mainPage.popUpWindow().selectCountry();
         sneakersPage = mainPage
@@ -33,7 +33,7 @@ public class NikeSneakersTest extends CommonConditions {
 
     @Test (priority = 5)
     public void findSneakersTest() {
-        mainPage = new MainPage(driver, "https://www.nike.com/");
+        mainPage = new MainPage(driver, "https://www.nike.com/ru");
         mainPage.openPage();
         mainPage.popUpWindow().selectCountry();
         sneakersPage = mainPage
