@@ -58,12 +58,12 @@ public class CartPage extends  Page {
     }
 
     public CartPage popUpSignIn() {
-        waitForElementLocatedBy(driver,signInLocator).getText();
+        waitForElementLocatedBy(driver,signInLocator).getText().trim();
         return this;
     }
 
     public OrderPage checkoutWithoutRegister() {
-        waitForElementLocatedBy(driver, checkoutWithoutRegisterLocator).click();
+        fluentWaitForElementLocatedBy(driver, checkoutWithoutRegisterLocator).click();
         return new OrderPage(driver, pageURL);
     }
 

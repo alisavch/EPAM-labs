@@ -35,7 +35,6 @@ public class NikeSneakersTest extends CommonConditions {
     public void findSneakersTest() {
         mainPage = new MainPage(driver, "https://www.nike.com/ru");
         mainPage.openPage();
-        mainPage.popUpWindow().selectCountry();
         sneakersPage = mainPage
                 .inputValueToSearch(SNEAKERS_INPUT)
                 .search()

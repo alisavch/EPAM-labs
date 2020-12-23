@@ -87,26 +87,26 @@ public class OrderPage extends Page{
     }
 
     public String totalPrice() {
-        return waitForElementLocatedBy(driver,totalPriceLocator).getText();
+        return waitForElementLocatedBy(driver,totalPriceLocator).getText().replaceAll("₽", "").trim();
     }
 
     public OrderPage agreement() {
-        waitForElementLocatedBy(driver, agreementLocator).click();
+        fluentWaitForElementLocatedBy(driver, agreementLocator).click();
         return this;
     }
 
     public OrderPage shippingSubmit() {
-        waitForElementLocatedBy(driver, shippingSubmitLocator).click();
+        fluentWaitForElementLocatedBy(driver, shippingSubmitLocator).click();
         return this;
     }
 
     public OrderPage proceedToCheckout() {
-        waitForElementLocatedBy(driver, proceedToCheckoutLocator).click();
+        fluentWaitForElementLocatedBy(driver, proceedToCheckoutLocator).click();
         return this;
     }
 
     public OrderPage paynow() {
-        waitForElementLocatedBy(driver, cardPaynowLocator).click();
+        fluentWaitForElementLocatedBy(driver, cardPaynowLocator).click();
         return this;
     }
 

@@ -63,8 +63,6 @@ public class NikeCartTest extends CommonConditions {
         cartPage = sneakersPage.chooseSize(SneakersSize.US9)
                 .addToCart()
                 .shoppingCart();
-        List<SneakersInfo> productInfoList = cartPage.getInCartProductInfo();
-        assertThat(productInfoList.get(0).price, is("10 480,00"));
         sneakersPage2 = new SneakersPage(driver, "https://www.nike.com/ru/t/%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-%D0%B4%D0%BB%D1%8F-%D0%B7%D0%B0%D0%B1%D0%B5%D0%B3%D0%BE%D0%B2-air-zoom-alphafly-next-g2tqPZ/CZ1514-800");
         sneakersPage2.openPage();
         sneakersPage2.chooseSize(SneakersSize.US9)
