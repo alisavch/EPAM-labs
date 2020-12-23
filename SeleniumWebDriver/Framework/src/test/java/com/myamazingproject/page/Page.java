@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class Page {
 
-    protected final int WAIT_TIMEOUT_SECONDS = 60;
+    protected final int WAIT_TIMEOUT_SECONDS = 20;
 
     protected final WebDriver driver;
     protected String pageURL;
@@ -18,7 +18,7 @@ public abstract class Page {
     public Page(WebDriver driver, String pageURL) {
         this.driver = driver;
         this.pageURL = pageURL;
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 60), this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
     public Page openPage() {
@@ -28,20 +28,20 @@ public abstract class Page {
     }
 
     protected static WebElement waitForElementLocatedBy(WebDriver driver, WebElement by) {
-        return new WebDriverWait(driver, 60)
+        return new WebDriverWait(driver, 20)
                 .until(ExpectedConditions.visibilityOf(by));
     }
 
     protected static WebElement fluentWaitForElementLocatedBy(WebDriver driver, WebElement by) {
         return new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(60))
+                .withTimeout(Duration.ofSeconds(20))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class).until((ExpectedConditions.visibilityOf(by)));
     }
 
     protected static WebElement fluentWaitForElementToBeClickable(WebDriver driver, WebElement by) {
         return new FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(60))
+                .withTimeout(Duration.ofSeconds(20))
                 .pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class).until((ExpectedConditions.elementToBeClickable(by)));
     }
