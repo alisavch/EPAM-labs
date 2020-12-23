@@ -47,7 +47,7 @@ public class OrderPage extends Page{
     @FindBy (xpath = "//*[@id='ch4_summaryTotal']//*[@class='ng-binding']")
     private WebElement totalPriceLocator;
 
-    @FindBy (xpath = "//*[@class='gdpr-inner-section is-invalid-gdpr']//*[@class='checkbox-checkmark']")
+    @FindBy (xpath = "//*[@class='checkbox-checkmark']")
     private WebElement agreementLocator;
 
     @FindBy (xpath = "//*[@class='order-buttons-area']//*[@name='shipSubmit'][contains(@class,'hidden-xs')]")
