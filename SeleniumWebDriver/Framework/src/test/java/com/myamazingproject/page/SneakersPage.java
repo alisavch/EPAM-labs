@@ -75,7 +75,7 @@ public class SneakersPage extends Page {
     }
 
     public CartPage shoppingCart() {
-        fluentWaitForElementLocatedBy(driver, goToCartLocator).click();
+        fluentWaitForElementToBeClickable(driver, goToCartLocator).click();
         return new CartPage(driver, pageURL);
     }
 

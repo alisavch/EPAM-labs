@@ -32,7 +32,7 @@ public class SearchSneakersPage extends Page {
     }
 
     public SneakersPage selectSneakers() {
-        fluentWaitForElementToBeClickable(driver, clickSneakersBtn).click();
+        fluentWaitForElementLocatedBy(driver, clickSneakersBtn).click();
         return new SneakersPage(driver, pageURL);
     }
 }
