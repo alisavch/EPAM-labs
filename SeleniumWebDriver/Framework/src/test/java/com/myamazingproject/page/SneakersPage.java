@@ -82,7 +82,7 @@ public class SneakersPage extends Page {
     }
 
     public static void getWarning(SneakersPage sneakersPage) {
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i < 10; i++) {
             sneakersPage.addToCart().closeNotification();
         }
     }
