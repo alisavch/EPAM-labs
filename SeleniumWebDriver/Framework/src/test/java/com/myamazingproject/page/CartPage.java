@@ -69,7 +69,7 @@ public class CartPage extends  Page {
 
     public List<SneakersInfo> getInCartProductInfo() {
         By productsInfoLocator = By.xpath("//*[@class='css-1930mmg ezer4f61']");
-        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(1))
+        Wait wait = new FluentWait(driver).withTimeout(Duration.ofSeconds(60)).pollingEvery(Duration.ofSeconds(1))
                 .ignoring(NoSuchElementException.class);
 
         List<WebElement> productsInfo = (List<WebElement>) wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(productsInfoLocator));
