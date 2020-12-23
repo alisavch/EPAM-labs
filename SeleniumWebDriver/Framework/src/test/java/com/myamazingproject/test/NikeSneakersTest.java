@@ -17,7 +17,21 @@ public class NikeSneakersTest extends CommonConditions {
     public static SneakersPage sneakersPage;
     private static final String SNEAKERS_INPUT = "Nike React";
 
-    @Test(priority = 1)
+    @Test (priority = 1)
+    public void addToCardWithoutChooseSize() {
+        mainPage = new MainPage(driver, "https://www.nike.com/");
+        mainPage.openPage();
+        mainPage.popUpWindow().selectCountry();
+        sneakersPage = mainPage
+                .inputValueToSearch(SNEAKERS_INPUT)
+                .search()
+                .filterColour(Colour.purpe)
+                .selectSneakers()
+                .addToCart();
+        assertThat(sneakersPage.chooseSizeNotification(), is("Выбери размер"));
+    }
+
+    @Test (priority = 5)
     public void findSneakersTest() {
         mainPage = new MainPage(driver, "https://www.nike.com/");
         mainPage.openPage();

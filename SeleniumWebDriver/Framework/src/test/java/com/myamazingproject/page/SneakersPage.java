@@ -37,6 +37,9 @@ public class SneakersPage extends Page {
     @FindBy (xpath = "//*[@class='css-bsyjwa e1n1kzst0']//*[@class='css-1brtky1 e1n1kzst1']")
     private WebElement errorLocator;
 
+    @FindBy (xpath = "//*[contains(@class,'sizeHeader css-61rhf3')]")
+    private WebElement chooceSizeNotificationLabel;
+
     private WebElement chooseSize;
 
     public SneakersPage(WebDriver driver, String pageURL) {
@@ -86,5 +89,9 @@ public class SneakersPage extends Page {
 
     public String getError(){
         return errorLocator.getText().trim();
+    }
+
+    public String chooseSizeNotification() {
+        return waitForElementLocatedBy(driver, chooceSizeNotificationLabel).getText().trim();
     }
 }

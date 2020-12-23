@@ -30,10 +30,6 @@ public class DriverSingleton {
         return driver;
     }
 
-    public static void deleteAllCookies() {
-        driver.manage().deleteAllCookies();
-    }
-
     public static void closeDriver() {
         driver.quit();
         driver = null;

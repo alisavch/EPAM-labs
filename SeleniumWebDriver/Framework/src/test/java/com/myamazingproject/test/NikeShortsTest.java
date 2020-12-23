@@ -9,9 +9,11 @@ import static org.hamcrest.Matchers.is;
 
 public class NikeShortsTest extends CommonConditions{
 
+    public static MainPage mainPage;
+
     @Test(priority = 7)
     public void filterClothesTest() {
-        MainPage mainPage = new MainPage(driver, "https://www.nike.com/");
+        mainPage = new MainPage(driver, "https://www.nike.com/");
         mainPage.openPage();
         mainPage.popUpWindow().selectCountry();
         SearchClothesPage search = mainPage
